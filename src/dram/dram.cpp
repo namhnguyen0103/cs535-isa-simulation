@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include <bitset>
 
 DRAM::DRAM(int numLines, int lineSize, int delay)
     : numLines_(numLines),
@@ -23,7 +24,7 @@ DRAM::LoadResult DRAM::load(int address, int requesterId) {
     int normalized = normalizeAddress(address);
     int lineIndex = getLineIndex(normalized);
 
-    // If DRAM is idle, start servicing this load
+    // Start request if idle
     if (!busy()) {
         active_.type = RequestType::LOAD;
         active_.requesterId = requesterId;
@@ -31,21 +32,29 @@ DRAM::LoadResult DRAM::load(int address, int requesterId) {
         active_.lineIndex = lineIndex;
         active_.cyclesLeft = delay_;
         active_.pendingStoreLine.clear();
+    }
+
+    // Must be same requester and same request to continue
+    if (active_.requesterId != requesterId ||
+        active_.type != RequestType::LOAD ||
+        active_.address != normalized) {
         return {true, {}};
     }
 
-    // If a different requester is trying to use DRAM, do not decrement
-    if (active_.requesterId != requesterId || active_.type != RequestType::LOAD || active_.address != normalized) {
-        return {true, {}};
-    }
-
-    // Same requester, same request: continue progress
+    // Advance one cycle
     if (active_.cyclesLeft > 0) {
         --active_.cyclesLeft;
+
+        if (active_.cyclesLeft == 0) {
+            Line result = memory_[active_.lineIndex];
+            reset();
+            return {false, result};
+        }
+
         return {true, {}};
     }
 
-    // Done
+    // Safety fallback
     Line result = memory_[active_.lineIndex];
     reset();
     return {false, result};
@@ -59,7 +68,7 @@ DRAM::StoreResult DRAM::store(int address, int requesterId, const Line& newLine)
     int normalized = normalizeAddress(address);
     int lineIndex = getLineIndex(normalized);
 
-    // If DRAM is idle, start servicing this store
+    // Start request if idle
     if (!busy()) {
         active_.type = RequestType::STORE;
         active_.requesterId = requesterId;
@@ -67,21 +76,29 @@ DRAM::StoreResult DRAM::store(int address, int requesterId, const Line& newLine)
         active_.lineIndex = lineIndex;
         active_.cyclesLeft = delay_;
         active_.pendingStoreLine = newLine;
+    }
+
+    // Must be same requester and same request to continue
+    if (active_.requesterId != requesterId ||
+        active_.type != RequestType::STORE ||
+        active_.address != normalized) {
         return {true};
     }
 
-    // If a different requester is trying to use DRAM, do not decrement
-    if (active_.requesterId != requesterId || active_.type != RequestType::STORE || active_.address != normalized) {
-        return {true};
-    }
-
-    // Same requester, same request: continue progress
+    // Advance one cycle
     if (active_.cyclesLeft > 0) {
         --active_.cyclesLeft;
+
+        if (active_.cyclesLeft == 0) {
+            memory_[active_.lineIndex] = active_.pendingStoreLine;
+            reset();
+            return {false};
+        }
+
         return {true};
     }
 
-    // Done
+    // Safety fallback
     memory_[active_.lineIndex] = active_.pendingStoreLine;
     reset();
     return {false};
@@ -107,6 +124,16 @@ int DRAM::getDelay() const {
     return delay_;
 }
 
+void DRAM::setLineDirect(int address, const Line& line) {
+    if (static_cast<int>(line.size()) != lineSize_) {
+        throw std::invalid_argument("line size does not match DRAM line size");
+    }
+
+    int normalized = normalizeAddress(address);
+    int lineIndex = getLineIndex(normalized);
+    memory_[lineIndex] = line;
+}
+
 DRAM::Line DRAM::peekLine(int address) const {
     int normalized = normalizeAddress(address);
     int lineIndex = getLineIndex(normalized);
@@ -116,9 +143,39 @@ DRAM::Line DRAM::peekLine(int address) const {
 void DRAM::dump() const {
     std::cout << "DRAM contents:\n";
     for (int i = 0; i < numLines_; ++i) {
-        std::cout << "Line " << std::setw(2) << i << ": ";
+        std::cout << "Line " << std::setw(2) << i << " | ";
         for (int j = 0; j < lineSize_; ++j) {
-            std::cout << memory_[i][j] << " ";
+            std::cout << "0x"
+                      << std::hex
+                      << std::setw(8)
+                      << std::setfill('0')
+                      << memory_[i][j]
+                      << std::dec
+                      << " ";
+        }
+        std::cout << "\n";
+    }
+}
+
+void DRAM::dump(int startLine, int endLine) const {
+    if (startLine < 0 || endLine < 0 || startLine >= numLines_ || endLine >= numLines_ || endLine < startLine) {
+        std::cout << "Invalid start line index or end line index\n"
+                  << "DRAM contains " << numLines_ << " lines\n";
+        std::cout << "\n";
+        return;
+    }
+
+    std::cout << "DRAM contents:\n";
+    for (int i = startLine; i <= endLine; ++i) {
+        std::cout << "Line " << std::setw(2) << i << " | ";
+        for (int j = 0; j < lineSize_; ++j) {
+            std::cout << "0x"
+                      << std::hex
+                      << std::setw(8)
+                      << std::setfill('0')
+                      << memory_[i][j]
+                      << std::dec
+                      << " ";
         }
         std::cout << "\n";
     }

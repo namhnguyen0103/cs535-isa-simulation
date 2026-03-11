@@ -29,9 +29,12 @@ public:
     int getLineSize() const;
     int getDelay() const;
 
+    void setLineDirect(int address, const Line& line);
+
     // Optional debug helpers
     Line peekLine(int address) const;
     void dump() const;
+    void dump(int startLine, int endLine) const;
 
 private:
     enum class RequestType {
