@@ -9,6 +9,16 @@ class Cache {
 public:
     using Line = std::vector<int>;
 
+    // Identifies which pipeline stage is using the cache.
+    // Passed as requesterId so the cache can enforce ownership:
+    // whichever stage starts a multi-cycle operation must be the
+    // one that keeps calling until wait == false.
+    enum class StageId {
+        NONE = -1,  // cache is idle, or operation just completed
+        IF   =  0,  // Instruction Fetch stage
+        MEM  =  1,  // Memory stage (loads and stores)
+    };
+
     enum class WritePolicy {
         WRITE_THROUGH,
         WRITE_BACK
@@ -22,10 +32,14 @@ public:
     struct LoadResult {
         bool wait;
         int value;
+        StageId activeStage;  // which stage owns the cache right now;
+                              // NONE if wait=false (operation completed)
     };
 
     struct StoreResult {
         bool wait;
+        StageId activeStage;  // which stage owns the cache right now;
+                              // NONE if wait=false (operation completed)
     };
 
     Cache(int numLines,
@@ -35,8 +49,11 @@ public:
           WritePolicy writePolicy,
           AllocatePolicy allocatePolicy);
 
-    LoadResult load(int address, int requesterId);
-    StoreResult store(int address, int requesterId, int value);
+    // StageId identifies which pipeline stage is making the request.
+    // The cache will return {wait: true} to any stage that tries to
+    // use it while another stage's operation is still in progress.
+    LoadResult  load (int address, StageId stage);
+    StoreResult store(int address, StageId stage, int value);
 
     bool busy() const;
     void reset();
@@ -102,4 +119,7 @@ private:
     int totalWords() const;
 
     bool isHit(int index, int tag) const;
+
+    // Converts active_.requesterId back to a StageId
+    StageId getActiveStage() const;
 };

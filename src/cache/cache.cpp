@@ -35,7 +35,15 @@ Cache::Cache(int numLines,
     }
 }
 
-Cache::LoadResult Cache::load(int address, int requesterId) {
+// Converts active_.requesterId back to a StageId
+Cache::StageId Cache::getActiveStage() const {
+    return static_cast<StageId>(active_.requesterId);
+}
+
+Cache::LoadResult Cache::load(int address, StageId stage) {
+    // Convert StageId to int for internal tracking and DRAM calls
+    int requesterId = static_cast<int>(stage);
+
     int normalized = normalizeAddress(address);
     int index = getIndex(normalized);
     int tag = getTag(normalized);
@@ -60,11 +68,12 @@ Cache::LoadResult Cache::load(int address, int requesterId) {
         active_.cyclesLeft = active_.miss ? 0 : delay_;
     }
 
-    // Must be same requester and same request to continue
+    // Must be same stage and same request to continue.
+    // A different stage gets wait=true and learns which stage owns it.
     if (active_.type != RequestType::LOAD ||
         active_.requesterId != requesterId ||
         active_.address != normalized) {
-        return {true, 0};
+        return {true, 0, getActiveStage()};
     }
 
     // ---------------- HIT ----------------
@@ -75,15 +84,15 @@ Cache::LoadResult Cache::load(int address, int requesterId) {
             if (active_.cyclesLeft == 0) {
                 int value = lines_[active_.index].data[active_.offset];
                 reset();
-                return {false, value};
+                return {false, value, StageId::NONE};
             }
 
-            return {true, 0};
+            return {true, 0, getActiveStage()};
         }
 
         int value = lines_[active_.index].data[active_.offset];
         reset();
-        return {false, value};
+        return {false, value, StageId::NONE};
     }
 
     // ---------------- MISS ----------------
@@ -93,7 +102,7 @@ Cache::LoadResult Cache::load(int address, int requesterId) {
         auto lower = lowerLevel_->load(lineBaseAddress, requesterId);
 
         if (lower.wait) {
-            return {true, 0};
+            return {true, 0, getActiveStage()};
         }
 
         active_.fetchedLine = lower.line;
@@ -120,18 +129,21 @@ Cache::LoadResult Cache::load(int address, int requesterId) {
         if (active_.cyclesLeft == 0) {
             int value = lines_[active_.index].data[active_.offset];
             reset();
-            return {false, value};
+            return {false, value, StageId::NONE};
         }
 
-        return {true, 0};
+        return {true, 0, getActiveStage()};
     }
 
     int value = lines_[active_.index].data[active_.offset];
     reset();
-    return {false, value};
+    return {false, value, StageId::NONE};
 }
 
-Cache::StoreResult Cache::store(int address, int requesterId, int value) {
+Cache::StoreResult Cache::store(int address, StageId stage, int value) {
+    // Convert StageId to int for internal tracking and DRAM calls
+    int requesterId = static_cast<int>(stage);
+
     int normalized = normalizeAddress(address);
     int index = getIndex(normalized);
     int tag = getTag(normalized);
@@ -153,18 +165,19 @@ Cache::StoreResult Cache::store(int address, int requesterId, int value) {
         active_.fetchedLine.clear();
     }
 
-    // Must be same requester and same request to continue
+    // Must be same stage and same request to continue.
+    // A different stage gets wait=true and learns which stage owns it.
     if (active_.type != RequestType::STORE ||
         active_.requesterId != requesterId ||
         active_.address != normalized) {
-        return {true};
+        return {true, getActiveStage()};
     }
 
     // HIT CASE
     if (!active_.miss) {
         if (active_.cyclesLeft > 0) {
             --active_.cyclesLeft;
-            return {true};
+            return {true, getActiveStage()};
         }
 
         CacheLine& line = lines_[active_.index];
@@ -176,7 +189,7 @@ Cache::StoreResult Cache::store(int address, int requesterId, int value) {
                                             requesterId,
                                             line.data);
             if (lower.wait) {
-                return {true};
+                return {true, getActiveStage()};
             }
             line.dirty = false;
         } else {
@@ -184,7 +197,7 @@ Cache::StoreResult Cache::store(int address, int requesterId, int value) {
         }
 
         reset();
-        return {false};
+        return {false, StageId::NONE};
     }
 
     // MISS CASE
@@ -197,7 +210,7 @@ Cache::StoreResult Cache::store(int address, int requesterId, int value) {
 
         auto lowerLoad = lowerLevel_->load(lineBaseAddress, requesterId);
         if (lowerLoad.wait) {
-            return {true};
+            return {true, getActiveStage()};
         }
 
         Line updated = lowerLoad.line;
@@ -205,11 +218,11 @@ Cache::StoreResult Cache::store(int address, int requesterId, int value) {
 
         auto lowerStore = lowerLevel_->store(lineBaseAddress, requesterId, updated);
         if (lowerStore.wait) {
-            return {true};
+            return {true, getActiveStage()};
         }
 
         reset();
-        return {false};
+        return {false, StageId::NONE};
     }
 
     // Write-back + write-allocate:
@@ -221,7 +234,7 @@ Cache::StoreResult Cache::store(int address, int requesterId, int value) {
             auto lower = lowerLevel_->load(lineBaseAddress, requesterId);
 
             if (lower.wait) {
-                return {true};
+                return {true, getActiveStage()};
             }
 
             active_.fetchedLine = lower.line;
@@ -241,11 +254,11 @@ Cache::StoreResult Cache::store(int address, int requesterId, int value) {
 
         if (active_.cyclesLeft > 0) {
             --active_.cyclesLeft;
-            return {true};
+            return {true, getActiveStage()};
         }
 
         reset();
-        return {false};
+        return {false, StageId::NONE};
     }
 
     throw std::runtime_error("Unsupported cache write policy combination");
@@ -304,7 +317,7 @@ void Cache::dump(int startLine, int endLine) const {
         std::cout << "\n";
         return;
     }
-    
+
     std::cout << "Cache contents:\n";
     for (int i = startLine; i <= endLine; ++i) {
         const auto& line = lines_[i];

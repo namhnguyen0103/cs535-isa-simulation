@@ -156,7 +156,7 @@ void handleInput(const std::string& instruction, DRAM* dram, Cache* cache) {
         int address = std::stoi(operands[2]);
 
         if (operands[1] == "M") {
-            auto result = cache->load(address, 1);
+            auto result = cache->load(address, Cache::StageId::MEM);
 
             if (result.wait) {
                 std::cout << "Wait\n";
@@ -182,7 +182,7 @@ void handleInput(const std::string& instruction, DRAM* dram, Cache* cache) {
         int value = std::stoi(operands[3]);
 
         if (operands[1] == "M") {
-            auto result = cache->store(address, 1, value);
+            auto result = cache->store(address, Cache::StageId::IF, value);
 
             if (result.wait) {
                 std::cout << "Wait\n";
