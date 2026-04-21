@@ -1,0 +1,54 @@
+# Demo program: increment array[64..67] by 1
+# Uses the full ISA from the CS 535 proposal
+#
+# Assembly syntax:
+#   ADD   rd, rs1, rs2        (R-type)
+#   SUB   rd, rs1, rs2
+#   MUL   rd, rs1, rs2
+#   DIV   rd, rs1, rs2
+#   AND   rd, rs1, rs2
+#   OR    rd, rs1, rs2
+#   XOR   rd, rs1, rs2
+#   NOT   rd, rs1
+#   SLL/SLA/SRL/SRA  rd, rs1, rs2
+#   CMPLT/CMPGT/CMPEQ rd, rs1, rs2
+#   ADDI  rd, rs1, imm        (I-type)
+#   SUBI  rd, rs1, imm
+#   MULI  rd, rs1, imm
+#   DIVI  rd, rs1, imm
+#   LOAD  rt, base, off       (M-type: rt = mem[base + off])
+#   STORE rt, base, off       (M-type: mem[base + off] = rt)
+#   BEQ   rs1, rs2, off       (branch if rs1==rs2, PC = PC+1+off)
+#   BEQI  rs1, rs2, rTgt      (branch if rs1==rs2, PC = r[rTgt])
+#   J     off                  (PC = PC+1+off)
+#   JR    rs1, imm             (PC = r[rs1]+imm)
+#   JAL   off                  (r1 = PC+1; PC = PC+1+off)
+#   JALR  rs1, imm             (r1 = PC+1; PC = r[rs1]+imm)
+#   NOP
+#   HALT
+#   DATA  addr v0 v1 ...       (pre-load DRAM at word address addr)
+
+# Pre-load array[0..3] at data address 64
+DATA 64  10 20 30 40
+
+# --- Program (PC 0 onwards) ---
+
+# Initialize
+ADDI r3, r0, 64    # r3 = 64  (base address of array)
+ADDI r4, r0, 4     # r4 = 4   (loop limit)
+ADDI r5, r0, 0     # r5 = 0   (counter i)
+
+# Loop start (PC 3)
+ADD  r6, r3, r5    # r6 = r3 + r5  (element address)
+LOAD r7, r6, 0     # r7 = mem[r6]
+ADDI r7, r7, 1     # r7 = r7 + 1
+ADD  r6, r3, r5    # r6 = r3 + r5  (recompute for store)
+STORE r7, r6, 0    # mem[r6] = r7
+ADDI r5, r5, 1     # r5++
+
+# Check loop condition:
+#   BEQ r5, r4, 1   -> if r5==r4 skip J, fall through to HALT
+#   J -8             -> else jump back to PC 3 (PC10: 10+1+(-8)=3)
+BEQ  r5, r4, 1     # if r5 == r4, skip next instruction
+J    -8             # jump back to loop start (PC 3)
+HALT
