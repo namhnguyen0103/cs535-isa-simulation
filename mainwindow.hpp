@@ -39,9 +39,9 @@ private:
     void refreshCache();
     void refreshDRAM();
 
-    static void  setStageStyle(QLabel* label, const QString& color, const QString& text);
-    static QString registerName(int reg);   // "r0 (zero)", "r1 (ra)", etc.
-    static QString flagsDescription(int r31Value);  // decode bits 3:0
+    static void    setStageStyle    (QLabel* label, const QString& color, const QString& text);
+    static QString registerName     (int reg);
+    static QString flagsDescription (int r31Value);
 
     // -----------------------------------------------------------------------
     // Simulator state
@@ -71,14 +71,17 @@ private:
     QListWidget* dramList_;
 
     // -----------------------------------------------------------------------
-    // UI — memory configuration spinboxes
+    // UI — memory configuration
+    // Default DRAM: 32 lines × 4 words = 128 words.
+    //   Instructions occupy addresses 0..N-1.
+    //   DATA_BASE = 16 sits safely in line 4, well clear of a 12-instruction program.
     // -----------------------------------------------------------------------
-    QSpinBox* dramNumLinesSpin_;
-    QSpinBox* dramLineSizeSpin_;
-    QSpinBox* dramDelaySpin_;
-    QSpinBox* cacheNumLinesSpin_;
-    QSpinBox* cacheLineSizeSpin_;   // kept in sync with DRAM line size
-    QSpinBox* cacheDelaySpin_;
+    QSpinBox* dramNumLinesSpin_;   // default 32
+    QSpinBox* dramLineSizeSpin_;   // default 4
+    QSpinBox* dramDelaySpin_;      // default 3
+    QSpinBox* cacheNumLinesSpin_;  // default 4
+    QSpinBox* cacheLineSizeSpin_;  // mirrors DRAM line size, read-only
+    QSpinBox* cacheDelaySpin_;     // default 1
 
     // -----------------------------------------------------------------------
     // UI — controls

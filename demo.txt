@@ -1,54 +1,44 @@
-# Demo program: increment array[64..67] by 1
-# Uses the full ISA from the CS 535 proposal
+# Demo program: increment array[0..3] by 1
 #
-# Assembly syntax:
-#   ADD   rd, rs1, rs2        (R-type)
-#   SUB   rd, rs1, rs2
-#   MUL   rd, rs1, rs2
-#   DIV   rd, rs1, rs2
-#   AND   rd, rs1, rs2
-#   OR    rd, rs1, rs2
-#   XOR   rd, rs1, rs2
-#   NOT   rd, rs1
-#   SLL/SLA/SRL/SRA  rd, rs1, rs2
-#   CMPLT/CMPGT/CMPEQ rd, rs1, rs2
-#   ADDI  rd, rs1, imm        (I-type)
-#   SUBI  rd, rs1, imm
-#   MULI  rd, rs1, imm
-#   DIVI  rd, rs1, imm
-#   LOAD  rt, base, off       (M-type: rt = mem[base + off])
-#   STORE rt, base, off       (M-type: mem[base + off] = rt)
-#   BEQ   rs1, rs2, off       (branch if rs1==rs2, PC = PC+1+off)
-#   BEQI  rs1, rs2, rTgt      (branch if rs1==rs2, PC = r[rTgt])
-#   J     off                  (PC = PC+1+off)
-#   JR    rs1, imm             (PC = r[rs1]+imm)
-#   JAL   off                  (r1 = PC+1; PC = PC+1+off)
-#   JALR  rs1, imm             (r1 = PC+1; PC = r[rs1]+imm)
-#   NOP
-#   HALT
-#   DATA  addr v0 v1 ...       (pre-load DRAM at word address addr)
+# Memory layout (default: 32 DRAM lines x 4 words = 128 words):
+#   Addresses  0-11  : 12 instructions (lines 0-2)
+#   Addresses 12-15  : padding (line 3, all zeros)
+#   Addresses 16-19  : data array {10, 20, 30, 40}  (line 4)
+#
+# IMPORTANT: DATA address must not overlap the instruction area.
+#   Instructions occupy addresses 0 through (num_instructions - 1).
+#   With 12 instructions that is addresses 0-11.
+#   DATA 16 places the array safely in line 4 with no overlap.
+#
+# Registers used:
+#   r3 = 16   (base address of data array)
+#   r4 = 4    (loop limit)
+#   r5 = i    (loop counter, 0..3)
+#   r6 = r3+r5 (element address, recomputed each iteration)
+#   r7 = temp  (loaded value, then incremented)
 
-# Pre-load array[0..3] at data address 64
-DATA 64  10 20 30 40
+# Pre-load data array at word address 16 (DRAM line 4)
+DATA 16  10 20 30 40
 
-# --- Program (PC 0 onwards) ---
+# ---- Initialization (PC 0-2) ----
+ADDI r3, r0, 16    # r3 = 16  (base address of array — matches DATA address above)
+ADDI r4, r0, 4     # r4 = 4   (loop limit: 4 elements)
+ADDI r5, r0, 0     # r5 = 0   (loop counter i, starts at 0)
 
-# Initialize
-ADDI r3, r0, 64    # r3 = 64  (base address of array)
-ADDI r4, r0, 4     # r4 = 4   (loop limit)
-ADDI r5, r0, 0     # r5 = 0   (counter i)
+# ---- Loop body (PC 3-10) ----
 
-# Loop start (PC 3)
-ADD  r6, r3, r5    # r6 = r3 + r5  (element address)
-LOAD r7, r6, 0     # r7 = mem[r6]
-ADDI r7, r7, 1     # r7 = r7 + 1
-ADD  r6, r3, r5    # r6 = r3 + r5  (recompute for store)
-STORE r7, r6, 0    # mem[r6] = r7
-ADDI r5, r5, 1     # r5++
+# PC 3: loop start
+ADD  r6, r3, r5    # r6 = r3 + r5  (element address = 16 + i)
+LOAD r7, r6, 0     # r7 = mem[r6+0]  (load array[i])
+                   #   NOTE: causes load-use data hazard — pipeline stalls 2 cycles
+ADDI r7, r7, 1     # r7 = r7 + 1   (increment the value)
+ADD  r6, r3, r5    # r6 = r3 + r5  (recompute address for store)
+STORE r7, r6, 0    # mem[r6+0] = r7  (write incremented value back)
+ADDI r5, r5, 1     # r5 = r5 + 1  (advance loop counter)
 
-# Check loop condition:
-#   BEQ r5, r4, 1   -> if r5==r4 skip J, fall through to HALT
-#   J -8             -> else jump back to PC 3 (PC10: 10+1+(-8)=3)
-BEQ  r5, r4, 1     # if r5 == r4, skip next instruction
-J    -8             # jump back to loop start (PC 3)
-HALT
+# ---- Loop control (PC 9-11) ----
+BEQ  r5, r4, 1     # if r5 == r4 (i.e. i == 4), skip J and fall to HALT
+                   #   taken:  target = 9+1+1 = PC 11 (HALT)
+                   #   not taken: fall through to J at PC 10
+J    -8            # jump back to PC 3 (loop start): 10+1+(-8) = PC 3
+HALT               # PC 11: stop simulation
