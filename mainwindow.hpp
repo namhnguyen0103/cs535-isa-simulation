@@ -6,13 +6,18 @@
 #include <QPushButton>
 #include <QGroupBox>
 #include <QSpinBox>
+#include <QRadioButton>
+#include <QButtonGroup>
 
 #include <memory>
 #include <vector>
 #include <utility>
 
+#include "simmode.hpp"
 #include "pipeline.hpp"
+#include "seqexecutor.hpp"
 #include "cache.hpp"
+#include "directmemif.hpp"
 #include "dram.hpp"
 #include "instruction.hpp"
 
@@ -25,6 +30,7 @@ public:
 private slots:
     void onLoadFile();
     void onStep();
+    void onRunToCompletion();
 
 private:
     void setupUI();
@@ -34,33 +40,59 @@ private:
 
     void refreshAll();
     void refreshPipelineDisplay();
+    void refreshSeqDisplay();
     void refreshInstructions();
     void refreshRegisters();
     void refreshCache();
     void refreshDRAM();
+    void refreshInfoBar();   // updates cycle + PC labels
 
     static void    setStageStyle    (QLabel* label, const QString& color, const QString& text);
     static QString registerName     (int reg);
     static QString flagsDescription (int r31Value);
 
     // -----------------------------------------------------------------------
-    // Simulator state
+    // Simulator objects
     // -----------------------------------------------------------------------
-    std::unique_ptr<DRAM>     dram_;
-    std::unique_ptr<Cache>    cache_;
-    std::unique_ptr<Pipeline> pipeline_;
-    std::vector<Instruction>  program_;
+    SimMode currentMode_ = SimMode::BOTH;
+
+    std::unique_ptr<DRAM>               dram_;
+    std::unique_ptr<Cache>              cache_;
+    std::unique_ptr<DirectMemIF>        directMem_;
+    std::unique_ptr<Pipeline>           pipeline_;
+    std::unique_ptr<SequentialExecutor> seqExec_;
+
+    std::vector<Instruction> program_;
     bool simReady_ = false;
 
     // -----------------------------------------------------------------------
-    // UI — pipeline stage boxes
+    // UI — mode selector
     // -----------------------------------------------------------------------
+    QRadioButton* modeNoPipeNoCache_;
+    QRadioButton* modePipeOnly_;
+    QRadioButton* modeCacheOnly_;
+    QRadioButton* modeBoth_;
+    QButtonGroup* modeGroup_;
+    QLabel*       modeDescLabel_;
+
+    // -----------------------------------------------------------------------
+    // UI — info bar (cycle count + PC)
+    // -----------------------------------------------------------------------
+    QLabel* cycleValueLabel_;  // shows the cycle number
+    QLabel* pcValueLabel_;     // shows the current PC
+
+    // -----------------------------------------------------------------------
+    // UI — top display: pipeline stage boxes OR sequential instruction box
+    // -----------------------------------------------------------------------
+    QWidget* pipeWidget_;
+    QWidget* seqWidget_;
+
     QLabel* stageIF_;
     QLabel* stageID_;
     QLabel* stageEX_;
     QLabel* stageMEM_;
     QLabel* stageWB_;
-    QLabel* cycleLabel_;
+    QLabel* seqInstrLabel_;
 
     // -----------------------------------------------------------------------
     // UI — data panels
@@ -69,23 +101,24 @@ private:
     QListWidget* regList_;
     QListWidget* cacheList_;
     QListWidget* dramList_;
+    QGroupBox*   cachePanel_;
 
     // -----------------------------------------------------------------------
     // UI — memory configuration
-    // Default DRAM: 32 lines × 4 words = 128 words.
-    //   Instructions occupy addresses 0..N-1.
-    //   DATA_BASE = 16 sits safely in line 4, well clear of a 12-instruction program.
     // -----------------------------------------------------------------------
-    QSpinBox* dramNumLinesSpin_;   // default 32
-    QSpinBox* dramLineSizeSpin_;   // default 4
-    QSpinBox* dramDelaySpin_;      // default 3
-    QSpinBox* cacheNumLinesSpin_;  // default 4
-    QSpinBox* cacheLineSizeSpin_;  // mirrors DRAM line size, read-only
-    QSpinBox* cacheDelaySpin_;     // default 1
+    QSpinBox*  dramNumLinesSpin_;
+    QSpinBox*  dramLineSizeSpin_;
+    QSpinBox*  dramDelaySpin_;
+    QSpinBox*  cacheNumLinesSpin_;
+    QSpinBox*  cacheLineSizeSpin_;
+    QSpinBox*  cacheDelaySpin_;
+    QGroupBox* cacheCfgBox_;
+    QLabel*    dramCapLabel_;
 
     // -----------------------------------------------------------------------
     // UI — controls
     // -----------------------------------------------------------------------
     QPushButton* stepBtn_;
+    QPushButton* runBtn_;
     QLabel*      statusLabel_;
 };

@@ -3,14 +3,10 @@ project(CPUSim CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
-# ---------------------------------------------------------------------------
-# Find Qt (tries Qt6 first, falls back to Qt5)
-# ---------------------------------------------------------------------------
 find_package(Qt6 COMPONENTS Widgets QUIET)
 if(Qt6_FOUND)
     set(QT_VERSION_MAJOR 6)
@@ -21,18 +17,14 @@ else()
     message(STATUS "Using Qt5")
 endif()
 
-# ---------------------------------------------------------------------------
-# Shared simulator core (all files are flat in the same directory)
-# ---------------------------------------------------------------------------
 set(CORE_SOURCES
     dram.cpp
     cache.cpp
+    directmemif.cpp
     pipeline.cpp
+    seqexecutor.cpp
 )
 
-# ---------------------------------------------------------------------------
-# GUI target
-# ---------------------------------------------------------------------------
 add_executable(sim_gui
     main_gui.cpp
     mainwindow.cpp

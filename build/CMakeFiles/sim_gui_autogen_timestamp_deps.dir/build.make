@@ -53,10 +53,10 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation"
+CMAKE_SOURCE_DIR = /Users/nguyenhoangnam/Downloads/files-2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build"
+CMAKE_BINARY_DIR = /Users/nguyenhoangnam/Downloads/files-2/build
 
 # Utility rule file for sim_gui_autogen_timestamp_deps.
 
@@ -81,6 +81,6 @@ CMakeFiles/sim_gui_autogen_timestamp_deps.dir/clean:
 .PHONY : CMakeFiles/sim_gui_autogen_timestamp_deps.dir/clean
 
 CMakeFiles/sim_gui_autogen_timestamp_deps.dir/depend:
-	cd "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation" "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation" "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build" "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build" "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build/CMakeFiles/sim_gui_autogen_timestamp_deps.dir/DependInfo.cmake" "--color=$(COLOR)" sim_gui_autogen_timestamp_deps
+	cd /Users/nguyenhoangnam/Downloads/files-2/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/nguyenhoangnam/Downloads/files-2 /Users/nguyenhoangnam/Downloads/files-2 /Users/nguyenhoangnam/Downloads/files-2/build /Users/nguyenhoangnam/Downloads/files-2/build /Users/nguyenhoangnam/Downloads/files-2/build/CMakeFiles/sim_gui_autogen_timestamp_deps.dir/DependInfo.cmake "--color=$(COLOR)" sim_gui_autogen_timestamp_deps
 .PHONY : CMakeFiles/sim_gui_autogen_timestamp_deps.dir/depend
 

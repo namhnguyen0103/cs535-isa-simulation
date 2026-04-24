@@ -740,21 +740,27 @@ sim_gui_autogen/timestamp: \
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/limits.h \
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/ptrcheck.h \
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/stdarg.h \
-	/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/CMakeLists.txt \
-	/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/build/CMakeFiles/4.3.1/CMakeCXXCompiler.cmake \
-	/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/build/CMakeFiles/4.3.1/CMakeSystem.cmake \
-	/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/build/sim_gui_autogen/moc_predefs.h \
-	/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/cache.cpp \
-	/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/cache.hpp \
-	/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/dram.cpp \
-	/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/dram.hpp \
-	/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/instruction.hpp \
-	/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/main_gui.cpp \
-	/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/mainwindow.cpp \
-	/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/mainwindow.hpp \
-	/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/pipeline.cpp \
-	/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/pipeline.hpp \
-	/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/registerfile.hpp \
+	/Users/nguyenhoangnam/Downloads/files-2/CMakeLists.txt \
+	/Users/nguyenhoangnam/Downloads/files-2/build/CMakeFiles/4.3.1/CMakeCXXCompiler.cmake \
+	/Users/nguyenhoangnam/Downloads/files-2/build/CMakeFiles/4.3.1/CMakeSystem.cmake \
+	/Users/nguyenhoangnam/Downloads/files-2/build/sim_gui_autogen/moc_predefs.h \
+	/Users/nguyenhoangnam/Downloads/files-2/cache.cpp \
+	/Users/nguyenhoangnam/Downloads/files-2/cache.hpp \
+	/Users/nguyenhoangnam/Downloads/files-2/directmemif.cpp \
+	/Users/nguyenhoangnam/Downloads/files-2/directmemif.hpp \
+	/Users/nguyenhoangnam/Downloads/files-2/dram.cpp \
+	/Users/nguyenhoangnam/Downloads/files-2/dram.hpp \
+	/Users/nguyenhoangnam/Downloads/files-2/instruction.hpp \
+	/Users/nguyenhoangnam/Downloads/files-2/main_gui.cpp \
+	/Users/nguyenhoangnam/Downloads/files-2/mainwindow.cpp \
+	/Users/nguyenhoangnam/Downloads/files-2/mainwindow.hpp \
+	/Users/nguyenhoangnam/Downloads/files-2/memif.hpp \
+	/Users/nguyenhoangnam/Downloads/files-2/pipeline.cpp \
+	/Users/nguyenhoangnam/Downloads/files-2/pipeline.hpp \
+	/Users/nguyenhoangnam/Downloads/files-2/registerfile.hpp \
+	/Users/nguyenhoangnam/Downloads/files-2/seqexecutor.cpp \
+	/Users/nguyenhoangnam/Downloads/files-2/seqexecutor.hpp \
+	/Users/nguyenhoangnam/Downloads/files-2/simmode.hpp \
 	/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/q17memory.h \
 	/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/q20bit.h \
 	/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/q20functional.h \
@@ -917,11 +923,13 @@ sim_gui_autogen/timestamp: \
 	/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtGui.framework/Versions/A/Headers/qtransform.h \
 	/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtGui.framework/Versions/A/Headers/qvalidator.h \
 	/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtGui.framework/Versions/A/Headers/qwindowdefs.h \
+	/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/QButtonGroup \
 	/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/QGroupBox \
 	/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/QLabel \
 	/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/QListWidget \
 	/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/QMainWindow \
 	/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/QPushButton \
+	/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/QRadioButton \
 	/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/QSpinBox \
 	/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qabstractbutton.h \
 	/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qabstractitemdelegate.h \
@@ -929,6 +937,7 @@ sim_gui_autogen/timestamp: \
 	/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qabstractscrollarea.h \
 	/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qabstractslider.h \
 	/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qabstractspinbox.h \
+	/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qbuttongroup.h \
 	/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qframe.h \
 	/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qgroupbox.h \
 	/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qlabel.h \
@@ -936,6 +945,7 @@ sim_gui_autogen/timestamp: \
 	/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qlistwidget.h \
 	/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qmainwindow.h \
 	/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qpushbutton.h \
+	/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qradiobutton.h \
 	/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qrubberband.h \
 	/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qsizepolicy.h \
 	/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qslider.h \
@@ -1210,81 +1220,23 @@ sim_gui_autogen/timestamp: \
 	/opt/homebrew/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsTargets.cmake \
 	/opt/homebrew/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsTargetsPrecheck.cmake \
 	/opt/homebrew/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsVersionlessTargets.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeCXXCompiler.cmake.in \
-	/opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp \
 	/opt/homebrew/share/cmake/Modules/CMakeCXXInformation.cmake \
 	/opt/homebrew/share/cmake/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake \
 	/opt/homebrew/share/cmake/Modules/CMakeCommonLanguageInclude.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeCompilerIdDetection.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeDetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerSupport.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeDetermineSystem.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake \
 	/opt/homebrew/share/cmake/Modules/CMakeFindDependencyMacro.cmake \
 	/opt/homebrew/share/cmake/Modules/CMakeGenericSystem.cmake \
 	/opt/homebrew/share/cmake/Modules/CMakeInitializeConfigs.cmake \
 	/opt/homebrew/share/cmake/Modules/CMakeLanguageInformation.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeParseImplicitIncludeInfo.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeParseImplicitLinkInfo.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeParseLibraryArchitecture.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeSystem.cmake.in \
 	/opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInformation.cmake \
 	/opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeTestCXXCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeTestCompilerCommon.cmake \
-	/opt/homebrew/share/cmake/Modules/CMakeUnixFindMake.cmake \
 	/opt/homebrew/share/cmake/Modules/CheckCXXCompilerFlag.cmake \
 	/opt/homebrew/share/cmake/Modules/CheckCXXSourceCompiles.cmake \
 	/opt/homebrew/share/cmake/Modules/CheckIncludeFileCXX.cmake \
 	/opt/homebrew/share/cmake/Modules/CheckLibraryExists.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/ADSP-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/ARMCC-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/ARMClang-DetermineCompiler.cmake \
 	/opt/homebrew/share/cmake/Modules/Compiler/AppleClang-CXX.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/AppleClang-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/Borland-DetermineCompiler.cmake \
 	/opt/homebrew/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/Clang-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/Clang-DetermineCompilerInternal.cmake \
 	/opt/homebrew/share/cmake/Modules/Compiler/Clang.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/Cray-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/CrayClang-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/Diab-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/Embarcadero-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/Fujitsu-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/GHS-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake \
 	/opt/homebrew/share/cmake/Modules/Compiler/GNU.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/HP-CXX-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/IAR-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/Intel-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/MSVC-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/NVHPC-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/NVIDIA-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/OrangeC-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/PGI-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/PathScale-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/Renesas-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/SCO-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/TI-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/TIClang-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/Tasking-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/Watcom-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/XL-CXX-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake \
-	/opt/homebrew/share/cmake/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake \
 	/opt/homebrew/share/cmake/Modules/FindOpenGL.cmake \
 	/opt/homebrew/share/cmake/Modules/FindPackageHandleStandardArgs.cmake \
 	/opt/homebrew/share/cmake/Modules/FindPackageMessage.cmake \
@@ -1293,19 +1245,15 @@ sim_gui_autogen/timestamp: \
 	/opt/homebrew/share/cmake/Modules/GNUInstallDirs.cmake \
 	/opt/homebrew/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake \
 	/opt/homebrew/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake \
-	/opt/homebrew/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake \
-	/opt/homebrew/share/cmake/Modules/Internal/CMakeInspectCXXLinker.cmake \
 	/opt/homebrew/share/cmake/Modules/Internal/CheckCompilerFlag.cmake \
 	/opt/homebrew/share/cmake/Modules/Internal/CheckFlagCommonConfig.cmake \
 	/opt/homebrew/share/cmake/Modules/Internal/CheckSourceCompiles.cmake \
-	/opt/homebrew/share/cmake/Modules/Internal/FeatureTesting.cmake \
 	/opt/homebrew/share/cmake/Modules/Linker/AppleClang-CXX.cmake \
 	/opt/homebrew/share/cmake/Modules/Linker/AppleClang.cmake \
 	/opt/homebrew/share/cmake/Modules/MacroAddFileDependencies.cmake \
 	/opt/homebrew/share/cmake/Modules/Platform/Apple-AppleClang-CXX.cmake \
 	/opt/homebrew/share/cmake/Modules/Platform/Apple-Clang-CXX.cmake \
 	/opt/homebrew/share/cmake/Modules/Platform/Apple-Clang.cmake \
-	/opt/homebrew/share/cmake/Modules/Platform/Darwin-Determine-CXX.cmake \
 	/opt/homebrew/share/cmake/Modules/Platform/Darwin-Initialize.cmake \
 	/opt/homebrew/share/cmake/Modules/Platform/Darwin.cmake \
 	/opt/homebrew/share/cmake/Modules/Platform/Linker/Apple-AppleClang-CXX.cmake \

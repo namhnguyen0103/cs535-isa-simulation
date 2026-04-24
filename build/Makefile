@@ -57,10 +57,10 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation"
+CMAKE_SOURCE_DIR = /Users/nguyenhoangnam/Downloads/files-2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build"
+CMAKE_BINARY_DIR = /Users/nguyenhoangnam/Downloads/files-2/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build/CMakeFiles" "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build//CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/nguyenhoangnam/Downloads/files-2/build/CMakeFiles /Users/nguyenhoangnam/Downloads/files-2/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/nguyenhoangnam/Downloads/files-2/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -178,6 +178,30 @@ cache.s: cache.cpp.s
 cache.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sim_gui.dir/build.make CMakeFiles/sim_gui.dir/cache.cpp.s
 .PHONY : cache.cpp.s
+
+directmemif.o: directmemif.cpp.o
+.PHONY : directmemif.o
+
+# target to build an object file
+directmemif.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sim_gui.dir/build.make CMakeFiles/sim_gui.dir/directmemif.cpp.o
+.PHONY : directmemif.cpp.o
+
+directmemif.i: directmemif.cpp.i
+.PHONY : directmemif.i
+
+# target to preprocess a source file
+directmemif.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sim_gui.dir/build.make CMakeFiles/sim_gui.dir/directmemif.cpp.i
+.PHONY : directmemif.cpp.i
+
+directmemif.s: directmemif.cpp.s
+.PHONY : directmemif.s
+
+# target to generate assembly for a file
+directmemif.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sim_gui.dir/build.make CMakeFiles/sim_gui.dir/directmemif.cpp.s
+.PHONY : directmemif.cpp.s
 
 dram.o: dram.cpp.o
 .PHONY : dram.o
@@ -275,6 +299,30 @@ pipeline.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sim_gui.dir/build.make CMakeFiles/sim_gui.dir/pipeline.cpp.s
 .PHONY : pipeline.cpp.s
 
+seqexecutor.o: seqexecutor.cpp.o
+.PHONY : seqexecutor.o
+
+# target to build an object file
+seqexecutor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sim_gui.dir/build.make CMakeFiles/sim_gui.dir/seqexecutor.cpp.o
+.PHONY : seqexecutor.cpp.o
+
+seqexecutor.i: seqexecutor.cpp.i
+.PHONY : seqexecutor.i
+
+# target to preprocess a source file
+seqexecutor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sim_gui.dir/build.make CMakeFiles/sim_gui.dir/seqexecutor.cpp.i
+.PHONY : seqexecutor.cpp.i
+
+seqexecutor.s: seqexecutor.cpp.s
+.PHONY : seqexecutor.s
+
+# target to generate assembly for a file
+seqexecutor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sim_gui.dir/build.make CMakeFiles/sim_gui.dir/seqexecutor.cpp.s
+.PHONY : seqexecutor.cpp.s
+
 sim_gui_autogen/mocs_compilation.o: sim_gui_autogen/mocs_compilation.cpp.o
 .PHONY : sim_gui_autogen/mocs_compilation.o
 
@@ -313,6 +361,9 @@ help:
 	@echo "... cache.o"
 	@echo "... cache.i"
 	@echo "... cache.s"
+	@echo "... directmemif.o"
+	@echo "... directmemif.i"
+	@echo "... directmemif.s"
 	@echo "... dram.o"
 	@echo "... dram.i"
 	@echo "... dram.s"
@@ -325,6 +376,9 @@ help:
 	@echo "... pipeline.o"
 	@echo "... pipeline.i"
 	@echo "... pipeline.s"
+	@echo "... seqexecutor.o"
+	@echo "... seqexecutor.i"
+	@echo "... seqexecutor.s"
 	@echo "... sim_gui_autogen/mocs_compilation.o"
 	@echo "... sim_gui_autogen/mocs_compilation.i"
 	@echo "... sim_gui_autogen/mocs_compilation.s"

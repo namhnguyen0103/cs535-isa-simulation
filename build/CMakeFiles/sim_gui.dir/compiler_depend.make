@@ -742,21 +742,27 @@ sim_gui_autogen/timestamp: /Applications/Xcode.app/Contents/Developer/Platforms/
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/limits.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/ptrcheck.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/stdarg.h \
-  /Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/CMakeLists.txt \
+  /Users/nguyenhoangnam/Downloads/files-2/CMakeLists.txt \
   CMakeFiles/4.3.1/CMakeCXXCompiler.cmake \
   CMakeFiles/4.3.1/CMakeSystem.cmake \
   sim_gui_autogen/moc_predefs.h \
-  /Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/cache.cpp \
-  /Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/cache.hpp \
-  /Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/dram.cpp \
-  /Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/dram.hpp \
-  /Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/instruction.hpp \
-  /Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/main_gui.cpp \
-  /Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/mainwindow.cpp \
-  /Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/mainwindow.hpp \
-  /Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/pipeline.cpp \
-  /Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/pipeline.hpp \
-  /Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/registerfile.hpp \
+  /Users/nguyenhoangnam/Downloads/files-2/cache.cpp \
+  /Users/nguyenhoangnam/Downloads/files-2/cache.hpp \
+  /Users/nguyenhoangnam/Downloads/files-2/directmemif.cpp \
+  /Users/nguyenhoangnam/Downloads/files-2/directmemif.hpp \
+  /Users/nguyenhoangnam/Downloads/files-2/dram.cpp \
+  /Users/nguyenhoangnam/Downloads/files-2/dram.hpp \
+  /Users/nguyenhoangnam/Downloads/files-2/instruction.hpp \
+  /Users/nguyenhoangnam/Downloads/files-2/main_gui.cpp \
+  /Users/nguyenhoangnam/Downloads/files-2/mainwindow.cpp \
+  /Users/nguyenhoangnam/Downloads/files-2/mainwindow.hpp \
+  /Users/nguyenhoangnam/Downloads/files-2/memif.hpp \
+  /Users/nguyenhoangnam/Downloads/files-2/pipeline.cpp \
+  /Users/nguyenhoangnam/Downloads/files-2/pipeline.hpp \
+  /Users/nguyenhoangnam/Downloads/files-2/registerfile.hpp \
+  /Users/nguyenhoangnam/Downloads/files-2/seqexecutor.cpp \
+  /Users/nguyenhoangnam/Downloads/files-2/seqexecutor.hpp \
+  /Users/nguyenhoangnam/Downloads/files-2/simmode.hpp \
   /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/q17memory.h \
   /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/q20bit.h \
   /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/q20functional.h \
@@ -919,11 +925,13 @@ sim_gui_autogen/timestamp: /Applications/Xcode.app/Contents/Developer/Platforms/
   /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtGui.framework/Versions/A/Headers/qtransform.h \
   /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtGui.framework/Versions/A/Headers/qvalidator.h \
   /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtGui.framework/Versions/A/Headers/qwindowdefs.h \
+  /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/QButtonGroup \
   /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/QGroupBox \
   /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/QLabel \
   /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/QListWidget \
   /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/QMainWindow \
   /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/QPushButton \
+  /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/QRadioButton \
   /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/QSpinBox \
   /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qabstractbutton.h \
   /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qabstractitemdelegate.h \
@@ -931,6 +939,7 @@ sim_gui_autogen/timestamp: /Applications/Xcode.app/Contents/Developer/Platforms/
   /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qabstractscrollarea.h \
   /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qabstractslider.h \
   /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qabstractspinbox.h \
+  /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qbuttongroup.h \
   /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qframe.h \
   /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qgroupbox.h \
   /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qlabel.h \
@@ -938,6 +947,7 @@ sim_gui_autogen/timestamp: /Applications/Xcode.app/Contents/Developer/Platforms/
   /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qlistwidget.h \
   /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qmainwindow.h \
   /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qpushbutton.h \
+  /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qradiobutton.h \
   /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qrubberband.h \
   /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qsizepolicy.h \
   /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qslider.h \
@@ -1213,81 +1223,23 @@ sim_gui_autogen/timestamp: /Applications/Xcode.app/Contents/Developer/Platforms/
   /opt/homebrew/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsTargets.cmake \
   /opt/homebrew/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsTargetsPrecheck.cmake \
   /opt/homebrew/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsVersionlessTargets.cmake \
-  /opt/homebrew/share/cmake/Modules/CMakeCXXCompiler.cmake.in \
-  /opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp \
   /opt/homebrew/share/cmake/Modules/CMakeCXXInformation.cmake \
   /opt/homebrew/share/cmake/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake \
   /opt/homebrew/share/cmake/Modules/CMakeCommonLanguageInclude.cmake \
-  /opt/homebrew/share/cmake/Modules/CMakeCompilerIdDetection.cmake \
-  /opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/CMakeDetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake \
-  /opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake \
-  /opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerSupport.cmake \
-  /opt/homebrew/share/cmake/Modules/CMakeDetermineSystem.cmake \
-  /opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake \
   /opt/homebrew/share/cmake/Modules/CMakeFindDependencyMacro.cmake \
   /opt/homebrew/share/cmake/Modules/CMakeGenericSystem.cmake \
   /opt/homebrew/share/cmake/Modules/CMakeInitializeConfigs.cmake \
   /opt/homebrew/share/cmake/Modules/CMakeLanguageInformation.cmake \
-  /opt/homebrew/share/cmake/Modules/CMakeParseImplicitIncludeInfo.cmake \
-  /opt/homebrew/share/cmake/Modules/CMakeParseImplicitLinkInfo.cmake \
-  /opt/homebrew/share/cmake/Modules/CMakeParseLibraryArchitecture.cmake \
-  /opt/homebrew/share/cmake/Modules/CMakeSystem.cmake.in \
   /opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInformation.cmake \
   /opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake \
-  /opt/homebrew/share/cmake/Modules/CMakeTestCXXCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/CMakeTestCompilerCommon.cmake \
-  /opt/homebrew/share/cmake/Modules/CMakeUnixFindMake.cmake \
   /opt/homebrew/share/cmake/Modules/CheckCXXCompilerFlag.cmake \
   /opt/homebrew/share/cmake/Modules/CheckCXXSourceCompiles.cmake \
   /opt/homebrew/share/cmake/Modules/CheckIncludeFileCXX.cmake \
   /opt/homebrew/share/cmake/Modules/CheckLibraryExists.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/ADSP-DetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/ARMCC-DetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/ARMClang-DetermineCompiler.cmake \
   /opt/homebrew/share/cmake/Modules/Compiler/AppleClang-CXX.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/AppleClang-DetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/Borland-DetermineCompiler.cmake \
   /opt/homebrew/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/Clang-DetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/Clang-DetermineCompilerInternal.cmake \
   /opt/homebrew/share/cmake/Modules/Compiler/Clang.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/Cray-DetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/CrayClang-DetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/Diab-DetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/Embarcadero-DetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/Fujitsu-DetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/GHS-DetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake \
   /opt/homebrew/share/cmake/Modules/Compiler/GNU.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/HP-CXX-DetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/IAR-DetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/Intel-DetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/MSVC-DetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/NVHPC-DetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/NVIDIA-DetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/OrangeC-DetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/PGI-DetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/PathScale-DetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/Renesas-DetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/SCO-DetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/TI-DetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/TIClang-DetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/Tasking-DetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/Watcom-DetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/XL-CXX-DetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake \
-  /opt/homebrew/share/cmake/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake \
   /opt/homebrew/share/cmake/Modules/FindOpenGL.cmake \
   /opt/homebrew/share/cmake/Modules/FindPackageHandleStandardArgs.cmake \
   /opt/homebrew/share/cmake/Modules/FindPackageMessage.cmake \
@@ -1296,19 +1248,15 @@ sim_gui_autogen/timestamp: /Applications/Xcode.app/Contents/Developer/Platforms/
   /opt/homebrew/share/cmake/Modules/GNUInstallDirs.cmake \
   /opt/homebrew/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake \
   /opt/homebrew/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake \
-  /opt/homebrew/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake \
-  /opt/homebrew/share/cmake/Modules/Internal/CMakeInspectCXXLinker.cmake \
   /opt/homebrew/share/cmake/Modules/Internal/CheckCompilerFlag.cmake \
   /opt/homebrew/share/cmake/Modules/Internal/CheckFlagCommonConfig.cmake \
   /opt/homebrew/share/cmake/Modules/Internal/CheckSourceCompiles.cmake \
-  /opt/homebrew/share/cmake/Modules/Internal/FeatureTesting.cmake \
   /opt/homebrew/share/cmake/Modules/Linker/AppleClang-CXX.cmake \
   /opt/homebrew/share/cmake/Modules/Linker/AppleClang.cmake \
   /opt/homebrew/share/cmake/Modules/MacroAddFileDependencies.cmake \
   /opt/homebrew/share/cmake/Modules/Platform/Apple-AppleClang-CXX.cmake \
   /opt/homebrew/share/cmake/Modules/Platform/Apple-Clang-CXX.cmake \
   /opt/homebrew/share/cmake/Modules/Platform/Apple-Clang.cmake \
-  /opt/homebrew/share/cmake/Modules/Platform/Darwin-Determine-CXX.cmake \
   /opt/homebrew/share/cmake/Modules/Platform/Darwin-Initialize.cmake \
   /opt/homebrew/share/cmake/Modules/Platform/Darwin.cmake \
   /opt/homebrew/share/cmake/Modules/Platform/Linker/Apple-AppleClang-CXX.cmake \
@@ -1328,8 +1276,6 @@ sim_gui_autogen/timestamp: /Applications/Xcode.app/Contents/Developer/Platforms/
 
 /opt/homebrew/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:
 
-/opt/homebrew/share/cmake/Modules/Internal/CMakeInspectCXXLinker.cmake:
-
 /opt/homebrew/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake:
 
 /opt/homebrew/share/cmake/Modules/GNUInstallDirs.cmake:
@@ -1340,45 +1286,9 @@ sim_gui_autogen/timestamp: /Applications/Xcode.app/Contents/Developer/Platforms/
 
 /opt/homebrew/share/cmake/Modules/FindOpenGL.cmake:
 
-/opt/homebrew/share/cmake/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake:
-
-/opt/homebrew/share/cmake/Modules/Compiler/XL-CXX-DetermineCompiler.cmake:
-
-/opt/homebrew/share/cmake/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake:
-
-/opt/homebrew/share/cmake/Modules/Compiler/PathScale-DetermineCompiler.cmake:
-
-/opt/homebrew/share/cmake/Modules/Compiler/PGI-DetermineCompiler.cmake:
-
-/opt/homebrew/share/cmake/Modules/Compiler/OrangeC-DetermineCompiler.cmake:
-
-/opt/homebrew/share/cmake/Modules/Compiler/MSVC-DetermineCompiler.cmake:
-
-/opt/homebrew/share/cmake/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake:
-
-/opt/homebrew/share/cmake/Modules/Compiler/IAR-DetermineCompiler.cmake:
-
-/opt/homebrew/share/cmake/Modules/Compiler/HP-CXX-DetermineCompiler.cmake:
-
 /opt/homebrew/share/cmake/Modules/Compiler/GNU.cmake:
 
-/opt/homebrew/share/cmake/Modules/Compiler/Embarcadero-DetermineCompiler.cmake:
-
-/opt/homebrew/share/cmake/Modules/Compiler/Cray-DetermineCompiler.cmake:
-
-/opt/homebrew/share/cmake/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake:
-
-/opt/homebrew/share/cmake/Modules/Compiler/Clang-DetermineCompilerInternal.cmake:
-
-/opt/homebrew/share/cmake/Modules/Compiler/Clang-DetermineCompiler.cmake:
-
-/opt/homebrew/share/cmake/Modules/Compiler/AppleClang-DetermineCompiler.cmake:
-
 /opt/homebrew/share/cmake/Modules/Compiler/AppleClang-CXX.cmake:
-
-/opt/homebrew/share/cmake/Modules/Compiler/ARMClang-DetermineCompiler.cmake:
-
-/opt/homebrew/share/cmake/Modules/Compiler/ARMCC-DetermineCompiler.cmake:
 
 /opt/homebrew/share/cmake/Modules/CheckLibraryExists.cmake:
 
@@ -1386,29 +1296,15 @@ sim_gui_autogen/timestamp: /Applications/Xcode.app/Contents/Developer/Platforms/
 
 /opt/homebrew/share/cmake/Modules/CheckCXXCompilerFlag.cmake:
 
-/opt/homebrew/share/cmake/Modules/CMakeTestCXXCompiler.cmake:
-
-/opt/homebrew/share/cmake/Modules/CMakeSystem.cmake.in:
-
-/opt/homebrew/share/cmake/Modules/CMakeParseLibraryArchitecture.cmake:
-
-/opt/homebrew/share/cmake/Modules/CMakeParseImplicitIncludeInfo.cmake:
-
 /opt/homebrew/share/cmake/Modules/CMakeGenericSystem.cmake:
 
 /opt/homebrew/share/cmake/Modules/CMakeFindDependencyMacro.cmake:
-
-/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerSupport.cmake:
-
-/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:
 
 /opt/homebrew/share/cmake/Modules/CMakeCommonLanguageInclude.cmake:
 
 /opt/homebrew/share/cmake/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake:
 
 /opt/homebrew/share/cmake/Modules/CMakeCXXInformation.cmake:
-
-/opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp:
 
 /opt/homebrew/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsVersionlessTargets.cmake:
 
@@ -1452,8 +1348,6 @@ sim_gui_autogen/timestamp: /Applications/Xcode.app/Contents/Developer/Platforms/
 
 /opt/homebrew/lib/cmake/Qt6Gui/Qt6QVirtualKeyboardPluginTargetsPrecheck.cmake:
 
-/opt/homebrew/share/cmake/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake:
-
 /opt/homebrew/lib/cmake/Qt6Gui/Qt6QVirtualKeyboardPluginTargets.cmake:
 
 /opt/homebrew/lib/cmake/Qt6Gui/Qt6QVirtualKeyboardPluginTargets-release.cmake:
@@ -1480,8 +1374,6 @@ sim_gui_autogen/timestamp: /Applications/Xcode.app/Contents/Developer/Platforms/
 
 /opt/homebrew/lib/cmake/Qt6Gui/Qt6QTgaPluginTargets-release.cmake:
 
-/opt/homebrew/share/cmake/Modules/Compiler/Diab-DetermineCompiler.cmake:
-
 /opt/homebrew/lib/cmake/Qt6Gui/Qt6QSvgPluginTargetsPrecheck.cmake:
 
 /opt/homebrew/lib/cmake/Qt6Gui/Qt6QSvgPluginTargets.cmake:
@@ -1499,8 +1391,6 @@ sim_gui_autogen/timestamp: /Applications/Xcode.app/Contents/Developer/Platforms/
 /opt/homebrew/lib/cmake/Qt6Gui/Qt6QSvgIconPluginTargetsPrecheck.cmake:
 
 /opt/homebrew/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginAdditionalTargetInfo.cmake:
-
-/opt/homebrew/share/cmake/Modules/CMakeTestCompilerCommon.cmake:
 
 /opt/homebrew/lib/cmake/Qt6Gui/Qt6QMngPluginTargetsPrecheck.cmake:
 
@@ -1542,8 +1432,6 @@ sim_gui_autogen/timestamp: /Applications/Xcode.app/Contents/Developer/Platforms/
 
 /opt/homebrew/lib/cmake/Qt6Gui/Qt6QICNSPluginAdditionalTargetInfo.cmake:
 
-/opt/homebrew/share/cmake/Modules/Compiler/NVIDIA-DetermineCompiler.cmake:
-
 /opt/homebrew/lib/cmake/Qt6Gui/Qt6QGifPluginTargetsPrecheck.cmake:
 
 /opt/homebrew/lib/cmake/Qt6Gui/Qt6QGifPluginTargets.cmake:
@@ -1568,8 +1456,6 @@ sim_gui_autogen/timestamp: /Applications/Xcode.app/Contents/Developer/Platforms/
 
 /opt/homebrew/lib/cmake/Qt6Gui/Qt6GuiTargets.cmake:
 
-/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerId.cmake:
-
 /opt/homebrew/lib/cmake/Qt6Gui/Qt6GuiConfigVersionImpl.cmake:
 
 /opt/homebrew/lib/cmake/Qt6Gui/Qt6GuiConfigVersion.cmake:
@@ -1583,8 +1469,6 @@ sim_gui_autogen/timestamp: /Applications/Xcode.app/Contents/Developer/Platforms/
 /opt/homebrew/lib/cmake/Qt6DBusTools/Qt6DBusToolsConfigVersionImpl.cmake:
 
 /opt/homebrew/lib/cmake/Qt6DBusTools/Qt6DBusToolsConfigVersion.cmake:
-
-/opt/homebrew/share/cmake/Modules/Compiler/CrayClang-DetermineCompiler.cmake:
 
 /opt/homebrew/lib/cmake/Qt6DBus/Qt6DBusTargetsPrecheck.cmake:
 
@@ -1674,8 +1558,6 @@ sim_gui_autogen/timestamp: /Applications/Xcode.app/Contents/Developer/Platforms/
 
 /opt/homebrew/lib/cmake/Qt6/QtPublicSbomHelpers.cmake:
 
-/opt/homebrew/share/cmake/Modules/CMakeUnixFindMake.cmake:
-
 /opt/homebrew/lib/cmake/Qt6/QtPublicSbomGenerationCycloneDXHelpers.cmake:
 
 /opt/homebrew/lib/cmake/Qt6/QtPublicSbomFileHelpers.cmake:
@@ -1725,8 +1607,6 @@ sim_gui_autogen/timestamp: /Applications/Xcode.app/Contents/Developer/Platforms/
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qtwidgets-config.h:
 
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qtabbar.h:
-
-/opt/homebrew/share/cmake/Modules/Compiler/GHS-DetermineCompiler.cmake:
 
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qstyle.h:
 
@@ -1778,8 +1658,6 @@ sim_gui_autogen/timestamp: /Applications/Xcode.app/Contents/Developer/Platforms/
 
 /opt/homebrew/share/cmake/Modules/FindPackageHandleStandardArgs.cmake:
 
-/opt/homebrew/share/cmake/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake:
-
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtGui.framework/Versions/A/Headers/qregion.h:
 
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtGui.framework/Versions/A/Headers/qpalette.h:
@@ -1791,8 +1669,6 @@ sim_gui_autogen/timestamp: /Applications/Xcode.app/Contents/Developer/Platforms/
 /opt/homebrew/lib/cmake/Qt6/QtInstallPaths.cmake:
 
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtGui.framework/Versions/A/Headers/qkeysequence.h:
-
-/opt/homebrew/share/cmake/Modules/Compiler/ADSP-DetermineCompiler.cmake:
 
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtGui.framework/Versions/A/Headers/qimage.h:
 
@@ -1818,8 +1694,6 @@ sim_gui_autogen/timestamp: /Applications/Xcode.app/Contents/Developer/Platforms/
 
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qvariant.h:
 
-/opt/homebrew/share/cmake/Modules/CMakeCompilerIdDetection.cmake:
-
 /opt/homebrew/lib/cmake/Qt6/Qt6ConfigVersionImpl.cmake:
 
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qutf8stringview.h:
@@ -1841,8 +1715,6 @@ sim_gui_autogen/timestamp: /Applications/Xcode.app/Contents/Developer/Platforms/
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qtcoreglobal.h:
 
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qtcoreexports.h:
-
-/opt/homebrew/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:
 
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qtcore-config.h:
 
@@ -1938,11 +1810,17 @@ sim_gui_autogen/timestamp: /Applications/Xcode.app/Contents/Developer/Platforms/
 
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qexceptionhandling.h:
 
+/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qendian.h:
+
+/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qdebug.h:
+
 /opt/homebrew/lib/cmake/Qt6Core/Qt6QDarwinMicrophonePermissionPluginAdditionalTargetInfo.cmake:
 
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtGui.framework/Versions/A/Headers/qpixmap.h:
 
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qcontiguouscache.h:
+
+/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qcontainertools_impl.h:
 
 /opt/homebrew/lib/cmake/Qt6DBus/Qt6DBusVersionlessAliasTargets.cmake:
 
@@ -1972,9 +1850,9 @@ sim_gui_autogen/timestamp: /Applications/Xcode.app/Contents/Developer/Platforms/
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__numeric/gcd_lcm.h:
 
-/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qbytearraylist.h:
+/Users/nguyenhoangnam/Downloads/files-2/dram.cpp:
 
-/opt/homebrew/share/cmake/Modules/CMakeCXXCompiler.cmake.in:
+/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qbytearraylist.h:
 
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qbytearrayalgorithms.h:
 
@@ -1996,6 +1874,8 @@ sim_gui_autogen/timestamp: /Applications/Xcode.app/Contents/Developer/Platforms/
 
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qalgorithms.h:
 
+/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/q20utility.h:
+
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qdatastream.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/rotate_copy.h:
@@ -2010,31 +1890,27 @@ sim_gui_autogen/timestamp: /Applications/Xcode.app/Contents/Developer/Platforms/
 
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/q17memory.h:
 
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__configuration/abi.h:
+/Users/nguyenhoangnam/Downloads/files-2/seqexecutor.cpp:
 
-/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qanystringview.h:
+/Users/nguyenhoangnam/Downloads/files-2/registerfile.hpp:
 
-/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/pipeline.cpp:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/function.h:
 
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/empty.h:
+/Users/nguyenhoangnam/Downloads/files-2/memif.hpp:
 
-/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/main_gui.cpp:
+/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qatomic.h:
 
-/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/instruction.hpp:
+/Users/nguyenhoangnam/Downloads/files-2/instruction.hpp:
 
-/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/q20utility.h:
-
-/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/dram.hpp:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/inplace_merge.h:
-
-/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/cache.cpp:
+/Users/nguyenhoangnam/Downloads/files-2/directmemif.hpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_mach_port_t.h:
 
 CMakeFiles/4.3.1/CMakeCXXCompiler.cmake:
 
-/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/CMakeLists.txt:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/execution:
+
+/Users/nguyenhoangnam/Downloads/files-2/CMakeLists.txt:
 
 /opt/homebrew/lib/cmake/Qt6Gui/Qt6QICOPluginTargetsPrecheck.cmake:
 
@@ -2100,8 +1976,6 @@ CMakeFiles/4.3.1/CMakeCXXCompiler.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_pid_t.h:
 
-/opt/homebrew/share/cmake/Modules/Compiler/Watcom-DetermineCompiler.cmake:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_off_t.h:
 
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qtabwidget.h:
@@ -2125,8 +1999,6 @@ CMakeFiles/4.3.1/CMakeCXXCompiler.cmake:
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qsystemdetection.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_fsfilcnt_t.h:
-
-/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qendian.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__atomic/atomic_flag.h:
 
@@ -2153,10 +2025,6 @@ CMakeFiles/4.3.1/CMakeCXXCompiler.cmake:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_t.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_rwlockattr_t.h:
-
-/opt/homebrew/share/cmake/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake:
-
-/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qdebug.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_mutex_t.h:
 
@@ -2190,6 +2058,8 @@ CMakeFiles/4.3.1/CMakeCXXCompiler.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/machine/types.h:
 
+/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qradiobutton.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/machine/endian.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/is_function.h:
@@ -2222,8 +2092,6 @@ CMakeFiles/4.3.1/CMakeCXXCompiler.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/stdio.h:
 
-/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/registerfile.hpp:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/stack:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__concepts/copyable.h:
@@ -2233,6 +2101,12 @@ CMakeFiles/4.3.1/CMakeCXXCompiler.cmake:
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtGui.framework/Versions/A/Headers/qfontinfo.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/ostream:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_posix_availability.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/construct_at.h:
+
+/Users/nguyenhoangnam/Downloads/files-2/cache.hpp:
 
 /opt/homebrew/lib/cmake/Qt6Gui/Qt6QICOPluginAdditionalTargetInfo.cmake:
 
@@ -2305,8 +2179,6 @@ CMakeFiles/4.3.1/CMakeCXXCompiler.cmake:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/clocale:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/cassert:
-
-/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qcontainertools_impl.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/bitset:
 
@@ -2386,8 +2258,6 @@ sim_gui_autogen/moc_predefs.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__utility/declval.h:
 
-/opt/homebrew/share/cmake/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake:
-
 /opt/homebrew/lib/cmake/Qt6/QtPublicSbomOpsHelpers.cmake:
 
 /opt/homebrew/lib/cmake/Qt6/QtPublicFinalizerHelpers.cmake:
@@ -2414,13 +2284,13 @@ sim_gui_autogen/moc_predefs.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/void_t.h:
 
+/Users/nguyenhoangnam/Downloads/files-2/pipeline.cpp:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/underlying_type.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/utility:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/type_list.h:
-
-/opt/homebrew/share/cmake/Modules/Platform/Darwin-Determine-CXX.cmake:
 
 /opt/homebrew/lib/cmake/Qt6Gui/Qt6GuiPlugins.cmake:
 
@@ -2429,8 +2299,6 @@ sim_gui_autogen/moc_predefs.h:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/vector.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/ctype.h:
-
-/opt/homebrew/share/cmake/Modules/CMakeParseImplicitLinkInfo.cmake:
 
 /opt/homebrew/lib/cmake/Qt6Gui/Qt6QSvgIconPluginTargets.cmake:
 
@@ -2455,8 +2323,6 @@ sim_gui_autogen/moc_predefs.h:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__tuple/ignore.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/remove_all_extents.h:
-
-/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/mainwindow.cpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/promote.h:
 
@@ -2499,6 +2365,8 @@ sim_gui_autogen/moc_predefs.h:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/is_trivially_destructible.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/is_trivially_copyable.h:
+
+/Users/nguyenhoangnam/Downloads/files-2/pipeline.hpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/is_trivially_assignable.h:
 
@@ -2554,8 +2422,6 @@ sim_gui_autogen/moc_predefs.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__utility/scope_guard.h:
 
-/opt/homebrew/share/cmake/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/bounded_iter.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/is_integral.h:
@@ -2573,8 +2439,6 @@ sim_gui_autogen/moc_predefs.h:
 /opt/homebrew/lib/cmake/Qt6Widgets/Qt6QMacStylePluginAdditionalTargetInfo.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/locale.h:
-
-/opt/homebrew/share/cmake/Modules/Compiler/Intel-DetermineCompiler.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/iter_swap.h:
 
@@ -2604,8 +2468,6 @@ sim_gui_autogen/moc_predefs.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/is_arithmetic.h:
 
-/opt/homebrew/share/cmake/Modules/Compiler/Fujitsu-DetermineCompiler.cmake:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/is_always_bitcastable.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/is_allocator.h:
@@ -2627,8 +2489,6 @@ sim_gui_autogen/moc_predefs.h:
 /opt/homebrew/lib/cmake/Qt6Core/Qt6QDarwinLocationPermissionPluginConfig.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/copy_cvref.h:
-
-/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/dram.cpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/copy_cv.h:
 
@@ -2688,6 +2548,10 @@ sim_gui_autogen/moc_predefs.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__tuple/tuple_like_no_subrange.h:
 
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/movable_box.h:
+
+/Users/nguyenhoangnam/Downloads/files-2/mainwindow.hpp:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__tuple/tuple_indices.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/numeric:
@@ -2716,9 +2580,9 @@ sim_gui_autogen/moc_predefs.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/compare:
 
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__system_error/error_condition.h:
+/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/QRadioButton:
 
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/execution:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__system_error/error_condition.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__system_error/error_category.h:
 
@@ -2729,10 +2593,6 @@ sim_gui_autogen/moc_predefs.h:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/remove_const.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__string/constexpr_c_functions.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/dangling.h:
-
-/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/pipeline.hpp:
 
 /opt/homebrew/lib/cmake/Qt6/FindWrapVulkanHeaders.cmake:
 
@@ -2754,7 +2614,7 @@ sim_gui_autogen/moc_predefs.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/subrange.h:
 
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/movable_box.h:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/empty.h:
 
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qversiontagging.h:
 
@@ -2769,6 +2629,8 @@ sim_gui_autogen/moc_predefs.h:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__new/launder.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ios/fpos.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/dangling.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/aligned_union.h:
 
@@ -2830,6 +2692,8 @@ sim_gui_autogen/moc_predefs.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__math/inverse_hyperbolic_functions.h:
 
+/Users/nguyenhoangnam/Downloads/files-2/dram.hpp:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__new/global_new_delete.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/size.h:
@@ -2874,15 +2738,13 @@ sim_gui_autogen/moc_predefs.h:
 
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qconfig.h:
 
+/Users/nguyenhoangnam/Downloads/files-2/cache.cpp:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/decay.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/inout_ptr.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__concepts/different_from.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_posix_availability.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/construct_at.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__utility/integer_sequence.h:
 
@@ -2954,6 +2816,8 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qobjectdefs.h:
 
+/Users/nguyenhoangnam/Downloads/files-2/main_gui.cpp:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/reverse_iterator.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_time.h:
@@ -2994,6 +2858,8 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_ssize_t.h:
 
+/Users/nguyenhoangnam/Downloads/files-2/seqexecutor.hpp:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/iter_move.h:
 
 /opt/homebrew/lib/cmake/Qt6Core/Qt6QDarwinCalendarPermissionPluginTargets-release.cmake:
@@ -3005,8 +2871,6 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 /opt/homebrew/lib/cmake/Qt6Widgets/Qt6QMacStylePluginTargetsPrecheck.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/reverse_copy.h:
-
-/opt/homebrew/share/cmake/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/istreambuf_iterator.h:
 
@@ -3070,6 +2934,8 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/unwrap_range.h:
 
+/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/QButtonGroup:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/istream.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/libkern/_OSByteOrder.h:
@@ -3106,8 +2972,6 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/memory.h:
 
-/opt/homebrew/share/cmake/Modules/Compiler/Tasking-DetermineCompiler.cmake:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/disjunction.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/pstl.h:
@@ -3133,6 +2997,8 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/rotate.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/complex.h:
+
+/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qbuttongroup.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/boyer_moore_searcher.h:
 
@@ -3181,8 +3047,6 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/pair.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__atomic/atomic_init.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/function.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/is_valid.h:
 
@@ -3270,8 +3134,6 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__numeric/iota.h:
 
-/opt/homebrew/share/cmake/Modules/Internal/FeatureTesting.cmake:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/comp_ref_type.h:
 
 /opt/homebrew/lib/cmake/Qt6Gui/Qt6QWebpPluginConfig.cmake:
@@ -3316,7 +3178,7 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/ostream.h:
 
-/opt/homebrew/share/cmake/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake:
+/Users/nguyenhoangnam/Downloads/files-2/directmemif.cpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__chrono/system_clock.h:
 
@@ -3396,11 +3258,13 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/max.h:
 
-/opt/homebrew/share/cmake/Modules/CMakeDetermineCompiler.cmake:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__bit/rotate.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__concepts/totally_ordered.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__configuration/abi.h:
+
+/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qanystringview.h:
 
 /opt/homebrew/lib/cmake/Qt6Gui/Qt6QJpegPluginAdditionalTargetInfo.cmake:
 
@@ -3420,6 +3284,8 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__atomic/to_gcc_order.h:
 
+/Users/nguyenhoangnam/Downloads/files-2/simmode.hpp:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__concepts/common_reference_with.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__atomic/kill_dependency.h:
@@ -3427,6 +3293,8 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__configuration/compiler.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/AvailabilityInternal.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/inplace_merge.h:
 
 /opt/homebrew/lib/cmake/Qt6/QtPublicSbomQtEntityHelpers.cmake:
 
@@ -3452,8 +3320,6 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__atomic/atomic_sync.h:
 
-/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qatomic.h:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__utility/forward.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/for_each_segment.h:
@@ -3464,8 +3330,6 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/byte.h:
 
-/opt/homebrew/share/cmake/Modules/Compiler/TI-DetermineCompiler.cmake:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__condition_variable/condition_variable.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__math/gamma.h:
@@ -3473,8 +3337,6 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__atomic/atomic_lock_free.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__mutex/mutex.h:
-
-/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_ino_t.h:
 
@@ -3532,11 +3394,7 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/shuffle.h:
 
-/opt/homebrew/share/cmake/Modules/Compiler/Borland-DetermineCompiler.cmake:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__vector/pmr.h:
-
-/opt/homebrew/share/cmake/Modules/Compiler/TIClang-DetermineCompiler.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/adjacent_find.h:
 
@@ -3551,8 +3409,6 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/search_n.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/addressof.h:
-
-/opt/homebrew/share/cmake/Modules/Compiler/Renesas-DetermineCompiler.cmake:
 
 /opt/homebrew/lib/cmake/Qt6Gui/Qt6QCocoaIntegrationPluginAdditionalTargetInfo.cmake:
 
@@ -3616,8 +3472,6 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_key_t.h:
 
-/opt/homebrew/share/cmake/Modules/CMakeDetermineSystem.cmake:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/iosfwd:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/comp.h:
@@ -3680,10 +3534,6 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/make_heap.h:
 
-/opt/homebrew/share/cmake/Modules/Compiler/SCO-DetermineCompiler.cmake:
-
-/opt/homebrew/share/cmake/Modules/Compiler/NVHPC-DetermineCompiler.cmake:
-
 /opt/homebrew/lib/cmake/Qt6GuiTools/Qt6GuiToolsTargetsPrecheck.cmake:
 
 /opt/homebrew/lib/cmake/Qt6/QtPublicSbomPythonHelpers.cmake:
@@ -3697,8 +3547,6 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/istream_iterator.h:
 
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qcontainerinfo.h:
-
-/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/mainwindow.hpp:
 
 /opt/homebrew/lib/cmake/Qt6DBusTools/Qt6DBusToolsTargetsPrecheck.cmake:
 
@@ -3790,8 +3638,6 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/stable_sort.h:
 
-/opt/homebrew/share/cmake/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake:
-
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/q23type_traits.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/subrange.h:
@@ -3846,8 +3692,6 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/generate_n.h:
 
-/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/cache.hpp:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/copy_move_common.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/qos.h:
@@ -3894,8 +3738,6 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_types.h:
 
-/opt/homebrew/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__math/error_functions.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/equal.h:
@@ -3933,6 +3775,8 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 /opt/homebrew/lib/cmake/Qt6Core/Qt6CoreVersionlessAliasTargets.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/wrap_iter.h:
+
+/Users/nguyenhoangnam/Downloads/files-2/mainwindow.cpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__math/abs.h:
 

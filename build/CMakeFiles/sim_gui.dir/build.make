@@ -53,10 +53,10 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation"
+CMAKE_SOURCE_DIR = /Users/nguyenhoangnam/Downloads/files-2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build"
+CMAKE_BINARY_DIR = /Users/nguyenhoangnam/Downloads/files-2/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/sim_gui.dir/depend.make
@@ -72,9 +72,9 @@ include CMakeFiles/sim_gui.dir/flags.make
 sim_gui_autogen/timestamp: /opt/homebrew/share/qt/libexec/moc
 sim_gui_autogen/timestamp: /opt/homebrew/share/qt/libexec/uic
 sim_gui_autogen/timestamp: CMakeFiles/sim_gui.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target sim_gui"
-	/opt/homebrew/bin/cmake -E cmake_autogen "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build/CMakeFiles/sim_gui_autogen.dir/AutogenInfo.json" ""
-	/opt/homebrew/bin/cmake -E touch "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build/sim_gui_autogen/timestamp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/nguyenhoangnam/Downloads/files-2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target sim_gui"
+	/opt/homebrew/bin/cmake -E cmake_autogen /Users/nguyenhoangnam/Downloads/files-2/build/CMakeFiles/sim_gui_autogen.dir/AutogenInfo.json ""
+	/opt/homebrew/bin/cmake -E touch /Users/nguyenhoangnam/Downloads/files-2/build/sim_gui_autogen/timestamp
 
 CMakeFiles/sim_gui.dir/codegen:
 .PHONY : CMakeFiles/sim_gui.dir/codegen
@@ -82,86 +82,114 @@ CMakeFiles/sim_gui.dir/codegen:
 CMakeFiles/sim_gui.dir/sim_gui_autogen/mocs_compilation.cpp.o: CMakeFiles/sim_gui.dir/flags.make
 CMakeFiles/sim_gui.dir/sim_gui_autogen/mocs_compilation.cpp.o: sim_gui_autogen/mocs_compilation.cpp
 CMakeFiles/sim_gui.dir/sim_gui_autogen/mocs_compilation.cpp.o: CMakeFiles/sim_gui.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/sim_gui.dir/sim_gui_autogen/mocs_compilation.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sim_gui.dir/sim_gui_autogen/mocs_compilation.cpp.o -MF CMakeFiles/sim_gui.dir/sim_gui_autogen/mocs_compilation.cpp.o.d -o CMakeFiles/sim_gui.dir/sim_gui_autogen/mocs_compilation.cpp.o -c "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build/sim_gui_autogen/mocs_compilation.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/nguyenhoangnam/Downloads/files-2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/sim_gui.dir/sim_gui_autogen/mocs_compilation.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sim_gui.dir/sim_gui_autogen/mocs_compilation.cpp.o -MF CMakeFiles/sim_gui.dir/sim_gui_autogen/mocs_compilation.cpp.o.d -o CMakeFiles/sim_gui.dir/sim_gui_autogen/mocs_compilation.cpp.o -c /Users/nguyenhoangnam/Downloads/files-2/build/sim_gui_autogen/mocs_compilation.cpp
 
 CMakeFiles/sim_gui.dir/sim_gui_autogen/mocs_compilation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sim_gui.dir/sim_gui_autogen/mocs_compilation.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build/sim_gui_autogen/mocs_compilation.cpp" > CMakeFiles/sim_gui.dir/sim_gui_autogen/mocs_compilation.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nguyenhoangnam/Downloads/files-2/build/sim_gui_autogen/mocs_compilation.cpp > CMakeFiles/sim_gui.dir/sim_gui_autogen/mocs_compilation.cpp.i
 
 CMakeFiles/sim_gui.dir/sim_gui_autogen/mocs_compilation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sim_gui.dir/sim_gui_autogen/mocs_compilation.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build/sim_gui_autogen/mocs_compilation.cpp" -o CMakeFiles/sim_gui.dir/sim_gui_autogen/mocs_compilation.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nguyenhoangnam/Downloads/files-2/build/sim_gui_autogen/mocs_compilation.cpp -o CMakeFiles/sim_gui.dir/sim_gui_autogen/mocs_compilation.cpp.s
 
 CMakeFiles/sim_gui.dir/main_gui.cpp.o: CMakeFiles/sim_gui.dir/flags.make
-CMakeFiles/sim_gui.dir/main_gui.cpp.o: /Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/main_gui.cpp
+CMakeFiles/sim_gui.dir/main_gui.cpp.o: /Users/nguyenhoangnam/Downloads/files-2/main_gui.cpp
 CMakeFiles/sim_gui.dir/main_gui.cpp.o: CMakeFiles/sim_gui.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/sim_gui.dir/main_gui.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sim_gui.dir/main_gui.cpp.o -MF CMakeFiles/sim_gui.dir/main_gui.cpp.o.d -o CMakeFiles/sim_gui.dir/main_gui.cpp.o -c "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/main_gui.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/nguyenhoangnam/Downloads/files-2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/sim_gui.dir/main_gui.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sim_gui.dir/main_gui.cpp.o -MF CMakeFiles/sim_gui.dir/main_gui.cpp.o.d -o CMakeFiles/sim_gui.dir/main_gui.cpp.o -c /Users/nguyenhoangnam/Downloads/files-2/main_gui.cpp
 
 CMakeFiles/sim_gui.dir/main_gui.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sim_gui.dir/main_gui.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/main_gui.cpp" > CMakeFiles/sim_gui.dir/main_gui.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nguyenhoangnam/Downloads/files-2/main_gui.cpp > CMakeFiles/sim_gui.dir/main_gui.cpp.i
 
 CMakeFiles/sim_gui.dir/main_gui.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sim_gui.dir/main_gui.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/main_gui.cpp" -o CMakeFiles/sim_gui.dir/main_gui.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nguyenhoangnam/Downloads/files-2/main_gui.cpp -o CMakeFiles/sim_gui.dir/main_gui.cpp.s
 
 CMakeFiles/sim_gui.dir/mainwindow.cpp.o: CMakeFiles/sim_gui.dir/flags.make
-CMakeFiles/sim_gui.dir/mainwindow.cpp.o: /Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/mainwindow.cpp
+CMakeFiles/sim_gui.dir/mainwindow.cpp.o: /Users/nguyenhoangnam/Downloads/files-2/mainwindow.cpp
 CMakeFiles/sim_gui.dir/mainwindow.cpp.o: CMakeFiles/sim_gui.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/sim_gui.dir/mainwindow.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sim_gui.dir/mainwindow.cpp.o -MF CMakeFiles/sim_gui.dir/mainwindow.cpp.o.d -o CMakeFiles/sim_gui.dir/mainwindow.cpp.o -c "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/mainwindow.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/nguyenhoangnam/Downloads/files-2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/sim_gui.dir/mainwindow.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sim_gui.dir/mainwindow.cpp.o -MF CMakeFiles/sim_gui.dir/mainwindow.cpp.o.d -o CMakeFiles/sim_gui.dir/mainwindow.cpp.o -c /Users/nguyenhoangnam/Downloads/files-2/mainwindow.cpp
 
 CMakeFiles/sim_gui.dir/mainwindow.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sim_gui.dir/mainwindow.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/mainwindow.cpp" > CMakeFiles/sim_gui.dir/mainwindow.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nguyenhoangnam/Downloads/files-2/mainwindow.cpp > CMakeFiles/sim_gui.dir/mainwindow.cpp.i
 
 CMakeFiles/sim_gui.dir/mainwindow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sim_gui.dir/mainwindow.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/mainwindow.cpp" -o CMakeFiles/sim_gui.dir/mainwindow.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nguyenhoangnam/Downloads/files-2/mainwindow.cpp -o CMakeFiles/sim_gui.dir/mainwindow.cpp.s
 
 CMakeFiles/sim_gui.dir/dram.cpp.o: CMakeFiles/sim_gui.dir/flags.make
-CMakeFiles/sim_gui.dir/dram.cpp.o: /Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/dram.cpp
+CMakeFiles/sim_gui.dir/dram.cpp.o: /Users/nguyenhoangnam/Downloads/files-2/dram.cpp
 CMakeFiles/sim_gui.dir/dram.cpp.o: CMakeFiles/sim_gui.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/sim_gui.dir/dram.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sim_gui.dir/dram.cpp.o -MF CMakeFiles/sim_gui.dir/dram.cpp.o.d -o CMakeFiles/sim_gui.dir/dram.cpp.o -c "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/dram.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/nguyenhoangnam/Downloads/files-2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/sim_gui.dir/dram.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sim_gui.dir/dram.cpp.o -MF CMakeFiles/sim_gui.dir/dram.cpp.o.d -o CMakeFiles/sim_gui.dir/dram.cpp.o -c /Users/nguyenhoangnam/Downloads/files-2/dram.cpp
 
 CMakeFiles/sim_gui.dir/dram.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sim_gui.dir/dram.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/dram.cpp" > CMakeFiles/sim_gui.dir/dram.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nguyenhoangnam/Downloads/files-2/dram.cpp > CMakeFiles/sim_gui.dir/dram.cpp.i
 
 CMakeFiles/sim_gui.dir/dram.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sim_gui.dir/dram.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/dram.cpp" -o CMakeFiles/sim_gui.dir/dram.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nguyenhoangnam/Downloads/files-2/dram.cpp -o CMakeFiles/sim_gui.dir/dram.cpp.s
 
 CMakeFiles/sim_gui.dir/cache.cpp.o: CMakeFiles/sim_gui.dir/flags.make
-CMakeFiles/sim_gui.dir/cache.cpp.o: /Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/cache.cpp
+CMakeFiles/sim_gui.dir/cache.cpp.o: /Users/nguyenhoangnam/Downloads/files-2/cache.cpp
 CMakeFiles/sim_gui.dir/cache.cpp.o: CMakeFiles/sim_gui.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/sim_gui.dir/cache.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sim_gui.dir/cache.cpp.o -MF CMakeFiles/sim_gui.dir/cache.cpp.o.d -o CMakeFiles/sim_gui.dir/cache.cpp.o -c "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/cache.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/nguyenhoangnam/Downloads/files-2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/sim_gui.dir/cache.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sim_gui.dir/cache.cpp.o -MF CMakeFiles/sim_gui.dir/cache.cpp.o.d -o CMakeFiles/sim_gui.dir/cache.cpp.o -c /Users/nguyenhoangnam/Downloads/files-2/cache.cpp
 
 CMakeFiles/sim_gui.dir/cache.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sim_gui.dir/cache.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/cache.cpp" > CMakeFiles/sim_gui.dir/cache.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nguyenhoangnam/Downloads/files-2/cache.cpp > CMakeFiles/sim_gui.dir/cache.cpp.i
 
 CMakeFiles/sim_gui.dir/cache.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sim_gui.dir/cache.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/cache.cpp" -o CMakeFiles/sim_gui.dir/cache.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nguyenhoangnam/Downloads/files-2/cache.cpp -o CMakeFiles/sim_gui.dir/cache.cpp.s
+
+CMakeFiles/sim_gui.dir/directmemif.cpp.o: CMakeFiles/sim_gui.dir/flags.make
+CMakeFiles/sim_gui.dir/directmemif.cpp.o: /Users/nguyenhoangnam/Downloads/files-2/directmemif.cpp
+CMakeFiles/sim_gui.dir/directmemif.cpp.o: CMakeFiles/sim_gui.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/nguyenhoangnam/Downloads/files-2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/sim_gui.dir/directmemif.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sim_gui.dir/directmemif.cpp.o -MF CMakeFiles/sim_gui.dir/directmemif.cpp.o.d -o CMakeFiles/sim_gui.dir/directmemif.cpp.o -c /Users/nguyenhoangnam/Downloads/files-2/directmemif.cpp
+
+CMakeFiles/sim_gui.dir/directmemif.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sim_gui.dir/directmemif.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nguyenhoangnam/Downloads/files-2/directmemif.cpp > CMakeFiles/sim_gui.dir/directmemif.cpp.i
+
+CMakeFiles/sim_gui.dir/directmemif.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sim_gui.dir/directmemif.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nguyenhoangnam/Downloads/files-2/directmemif.cpp -o CMakeFiles/sim_gui.dir/directmemif.cpp.s
 
 CMakeFiles/sim_gui.dir/pipeline.cpp.o: CMakeFiles/sim_gui.dir/flags.make
-CMakeFiles/sim_gui.dir/pipeline.cpp.o: /Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/pipeline.cpp
+CMakeFiles/sim_gui.dir/pipeline.cpp.o: /Users/nguyenhoangnam/Downloads/files-2/pipeline.cpp
 CMakeFiles/sim_gui.dir/pipeline.cpp.o: CMakeFiles/sim_gui.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/sim_gui.dir/pipeline.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sim_gui.dir/pipeline.cpp.o -MF CMakeFiles/sim_gui.dir/pipeline.cpp.o.d -o CMakeFiles/sim_gui.dir/pipeline.cpp.o -c "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/pipeline.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/nguyenhoangnam/Downloads/files-2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/sim_gui.dir/pipeline.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sim_gui.dir/pipeline.cpp.o -MF CMakeFiles/sim_gui.dir/pipeline.cpp.o.d -o CMakeFiles/sim_gui.dir/pipeline.cpp.o -c /Users/nguyenhoangnam/Downloads/files-2/pipeline.cpp
 
 CMakeFiles/sim_gui.dir/pipeline.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sim_gui.dir/pipeline.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/pipeline.cpp" > CMakeFiles/sim_gui.dir/pipeline.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nguyenhoangnam/Downloads/files-2/pipeline.cpp > CMakeFiles/sim_gui.dir/pipeline.cpp.i
 
 CMakeFiles/sim_gui.dir/pipeline.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sim_gui.dir/pipeline.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/pipeline.cpp" -o CMakeFiles/sim_gui.dir/pipeline.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nguyenhoangnam/Downloads/files-2/pipeline.cpp -o CMakeFiles/sim_gui.dir/pipeline.cpp.s
+
+CMakeFiles/sim_gui.dir/seqexecutor.cpp.o: CMakeFiles/sim_gui.dir/flags.make
+CMakeFiles/sim_gui.dir/seqexecutor.cpp.o: /Users/nguyenhoangnam/Downloads/files-2/seqexecutor.cpp
+CMakeFiles/sim_gui.dir/seqexecutor.cpp.o: CMakeFiles/sim_gui.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/nguyenhoangnam/Downloads/files-2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/sim_gui.dir/seqexecutor.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sim_gui.dir/seqexecutor.cpp.o -MF CMakeFiles/sim_gui.dir/seqexecutor.cpp.o.d -o CMakeFiles/sim_gui.dir/seqexecutor.cpp.o -c /Users/nguyenhoangnam/Downloads/files-2/seqexecutor.cpp
+
+CMakeFiles/sim_gui.dir/seqexecutor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/sim_gui.dir/seqexecutor.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nguyenhoangnam/Downloads/files-2/seqexecutor.cpp > CMakeFiles/sim_gui.dir/seqexecutor.cpp.i
+
+CMakeFiles/sim_gui.dir/seqexecutor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/sim_gui.dir/seqexecutor.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nguyenhoangnam/Downloads/files-2/seqexecutor.cpp -o CMakeFiles/sim_gui.dir/seqexecutor.cpp.s
 
 # Object files for target sim_gui
 sim_gui_OBJECTS = \
@@ -170,7 +198,9 @@ sim_gui_OBJECTS = \
 "CMakeFiles/sim_gui.dir/mainwindow.cpp.o" \
 "CMakeFiles/sim_gui.dir/dram.cpp.o" \
 "CMakeFiles/sim_gui.dir/cache.cpp.o" \
-"CMakeFiles/sim_gui.dir/pipeline.cpp.o"
+"CMakeFiles/sim_gui.dir/directmemif.cpp.o" \
+"CMakeFiles/sim_gui.dir/pipeline.cpp.o" \
+"CMakeFiles/sim_gui.dir/seqexecutor.cpp.o"
 
 # External object files for target sim_gui
 sim_gui_EXTERNAL_OBJECTS =
@@ -180,13 +210,15 @@ sim_gui: CMakeFiles/sim_gui.dir/main_gui.cpp.o
 sim_gui: CMakeFiles/sim_gui.dir/mainwindow.cpp.o
 sim_gui: CMakeFiles/sim_gui.dir/dram.cpp.o
 sim_gui: CMakeFiles/sim_gui.dir/cache.cpp.o
+sim_gui: CMakeFiles/sim_gui.dir/directmemif.cpp.o
 sim_gui: CMakeFiles/sim_gui.dir/pipeline.cpp.o
+sim_gui: CMakeFiles/sim_gui.dir/seqexecutor.cpp.o
 sim_gui: CMakeFiles/sim_gui.dir/build.make
 sim_gui: /opt/homebrew/lib/QtWidgets.framework/Versions/A/QtWidgets
 sim_gui: /opt/homebrew/lib/QtGui.framework/Versions/A/QtGui
 sim_gui: /opt/homebrew/lib/QtCore.framework/Versions/A/QtCore
 sim_gui: CMakeFiles/sim_gui.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable sim_gui"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/nguyenhoangnam/Downloads/files-2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable sim_gui"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/sim_gui.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -198,6 +230,6 @@ CMakeFiles/sim_gui.dir/clean:
 .PHONY : CMakeFiles/sim_gui.dir/clean
 
 CMakeFiles/sim_gui.dir/depend: sim_gui_autogen/timestamp
-	cd "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation" "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation" "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build" "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build" "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build/CMakeFiles/sim_gui.dir/DependInfo.cmake" "--color=$(COLOR)" sim_gui
+	cd /Users/nguyenhoangnam/Downloads/files-2/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/nguyenhoangnam/Downloads/files-2 /Users/nguyenhoangnam/Downloads/files-2 /Users/nguyenhoangnam/Downloads/files-2/build /Users/nguyenhoangnam/Downloads/files-2/build /Users/nguyenhoangnam/Downloads/files-2/build/CMakeFiles/sim_gui.dir/DependInfo.cmake "--color=$(COLOR)" sim_gui
 .PHONY : CMakeFiles/sim_gui.dir/depend
 

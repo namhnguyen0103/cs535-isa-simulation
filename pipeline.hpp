@@ -2,27 +2,29 @@
 
 #include "instruction.hpp"
 #include "registerfile.hpp"
-#include "cache.hpp"
+#include "memif.hpp"
 
-#include <vector>
 #include <string>
+#include <vector>
 #include <iostream>
 #include <iomanip>
 
 class Pipeline {
 public:
-    Pipeline(int programBase, int programSize, Cache* cache);
+    Pipeline(int programBase, int programSize, MemIF* mem);
 
-    // Advance one clock cycle. Returns false when done.
+    // Advance one clock cycle. Returns false when the pipeline has fully drained.
     bool tick();
     void dump() const;
 
     int  getCycleCount() const { return cycle_; }
     bool isDone()        const { return done_;  }
 
-    // -----------------------------------------------------------------------
+    // Current fetch PC — the address of the next instruction to be fetched.
+    // In pipeline mode this is the most natural "program counter" to display.
+    int getCurrentPC() const { return pc_; }
+
     // GUI accessors — valid after each tick()
-    // -----------------------------------------------------------------------
     std::string getIFLabel()  const { return ifLabel_;  }
     std::string getIDLabel()  const { return idLabel_;  }
     std::string getEXLabel()  const { return exLabel_;  }
@@ -42,75 +44,45 @@ private:
     // -----------------------------------------------------------------------
     // Pipeline latches
     //
-    // squashed=true means the instruction was fetched on a wrong path after
-    // a branch. It stays in the pipeline and is visible in the display, but
-    // all side effects (register write, cache access, branch, flags) are
-    // suppressed. valid=false means the slot is a structural bubble (no
-    // instruction at all — used for stall-injected NOPs).
+    // squashed=true: instruction was on the wrong path after a branch.
+    //   Stays visible in the pipeline but all side effects are suppressed.
+    // valid=false: structural bubble — stall-injected NOP, no instruction.
     // -----------------------------------------------------------------------
-
     struct IFIDReg {
         Instruction instr    = makeNop();
         int  pc      = 0;
         bool valid   = false;
-        bool squashed = false;
+        bool squashed= false;
     };
-
     struct IDEXReg {
         Instruction instr    = makeNop();
-        int  pc      = 0;
-        int  rv1     = 0;
-        int  rv2     = 0;
-        int  rvTgt   = 0;    // value of rd register (used by BEQI)
-        bool valid   = false;
-        bool squashed = false;
+        int  pc=0, rv1=0, rv2=0, rvTgt=0;
+        bool valid=false, squashed=false;
     };
-
     struct EXMEMReg {
         Instruction instr        = makeNop();
-        int  pc           = 0;
-        int  aluResult    = 0;
-        int  storeValue   = 0;
-        bool branchTaken  = false;
-        int  branchTarget = 0;
-        bool writesFlags  = false;
-        int  flagsValue   = 0;
-        bool valid        = false;
-        bool squashed     = false;
+        int  pc=0, aluResult=0, storeValue=0, branchTarget=0, flagsValue=0;
+        bool branchTaken=false, writesFlags=false, valid=false, squashed=false;
     };
-
     struct MEMWBReg {
-        Instruction instr       = makeNop();
-        int  pc          = 0;
-        int  result      = 0;
-        bool writesFlags = false;
-        int  flagsValue  = 0;
-        bool valid       = false;
-        bool squashed    = false;
+        Instruction instr  = makeNop();
+        int  pc=0, result=0, flagsValue=0;
+        bool writesFlags=false, valid=false, squashed=false;
     };
 
-    // -----------------------------------------------------------------------
-    // Stage helpers
-    // -----------------------------------------------------------------------
     bool doMEM(MEMWBReg& next);
     bool doEX (EXMEMReg& next, int& branchTarget);
     bool hasDataHazard() const;
-    static bool writesRegister(const Instruction& instr);
-    static bool setsFlags     (const Instruction& instr);
-    static int  computeFlags  (int result, bool divZero = false, bool overflow = false);
+    static bool writesRegister(const Instruction& i);
+    static bool setsFlags     (const Instruction& i);
+    static int  computeFlags  (int result, bool divZero=false, bool overflow=false);
 
-    // -----------------------------------------------------------------------
-    // State
-    // -----------------------------------------------------------------------
-    int    programBase_;
-    int    programEndPc_;
-    Cache* cache_;
+    int    programBase_, programEndPc_;
+    MemIF* mem_;
     RegisterFile rf_;
 
-    int  pc_             = 0;
-    int  cycle_          = 0;
-    bool done_           = false;
-    bool haltInPipeline_ = false;
+    int  pc_=0, cycle_=0;
+    bool done_=false, haltInPipeline_=false;
 
     IFIDReg  ifid_;
     IDEXReg  idex_;
@@ -118,5 +90,5 @@ private:
     MEMWBReg memwb_;
 
     std::string ifLabel_, idLabel_, exLabel_, memLabel_, wbLabel_;
-    int ifPC_ = -1, idPC_ = -1, exPC_ = -1, memPC_ = -1, wbPC_ = -1;
+    int ifPC_=-1, idPC_=-1, exPC_=-1, memPC_=-1, wbPC_=-1;
 };

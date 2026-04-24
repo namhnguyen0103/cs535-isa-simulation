@@ -1,42 +1,24 @@
 #pragma once
 
+#include "memif.hpp"
 #include "dram.hpp"
 
 #include <vector>
 #include <stdexcept>
 
-class Cache {
+class Cache : public MemIF {
 public:
     using Line = std::vector<int>;
 
-    enum class StageId {
-        NONE = -1,
-        IF   =  0,
-        MEM  =  1,
-    };
+    // Re-export so existing code using Cache::StageId still compiles
+    using StageId     = MemIF::StageId;
+    using LoadResult  = MemIF::LoadResult;
+    using StoreResult = MemIF::StoreResult;
 
-    enum class WritePolicy {
-        WRITE_THROUGH,
-        WRITE_BACK
-    };
+    enum class WritePolicy    { WRITE_THROUGH, WRITE_BACK };
+    enum class AllocatePolicy { WRITE_ALLOCATE, NO_WRITE_ALLOCATE };
 
-    enum class AllocatePolicy {
-        WRITE_ALLOCATE,
-        NO_WRITE_ALLOCATE
-    };
-
-    struct LoadResult {
-        bool    wait;
-        int     value;
-        StageId activeStage;
-    };
-
-    struct StoreResult {
-        bool    wait;
-        StageId activeStage;
-    };
-
-    // GUI accessor — snapshot of one cache line for display
+    // Snapshot of one cache line — for GUI display
     struct CacheLineInfo {
         bool valid = false;
         bool dirty = false;
@@ -44,28 +26,23 @@ public:
         std::vector<int> data;
     };
 
-    Cache(int numLines,
-          int lineSize,
-          int delay,
+    Cache(int numLines, int lineSize, int delay,
           DRAM* lowerLevel,
-          WritePolicy writePolicy,
+          WritePolicy    writePolicy,
           AllocatePolicy allocatePolicy);
 
-    LoadResult  load (int address, StageId stage);
-    StoreResult store(int address, StageId stage, int value);
+    // MemIF interface
+    LoadResult  load (int address, StageId stage) override;
+    StoreResult store(int address, StageId stage, int value) override;
+    void cancelRequestFrom(StageId stage) override;
+    bool busy()  const override;
+    void reset()       override;
 
-    // Cancel the active request only if owned by the given stage.
-    void cancelRequestFrom(StageId stage);
-
-    bool busy() const;
-    void reset();
     void cancelCurrentRequest();
+    int  getNumLines() const;
+    int  getLineSize() const;
+    int  getDelay()    const;
 
-    int getNumLines() const;
-    int getLineSize() const;
-    int getDelay()    const;
-
-    // GUI: read a cache line by index for display
     CacheLineInfo getCacheLine(int index) const;
 
     void dump() const;
@@ -85,28 +62,17 @@ private:
         RequestType type        = RequestType::NONE;
         int         requesterId = -1;
         int         address     = 0;
-        int         index       = 0;
-        int         tag         = 0;
-        int         offset      = 0;
+        int         index = 0, tag = 0, offset = 0;
         int         cyclesLeft  = 0;
         int         storeValue  = 0;
-
-        bool miss           = false;
-        bool waitingOnLower = false;
-
-        // Dirty victim writeback state
-        bool hasFlushedDirty   = false;   // true once dirty eviction is done
-        int  dirtyFlushAddress = 0;       // DRAM address of the dirty victim line
-
-        // New line fetch state
-        bool hasFetchedLine = false;
-        Line fetchedLine;
+        bool        miss              = false;
+        bool        hasFlushedDirty   = false;
+        int         dirtyFlushAddress = 0;
+        bool        hasFetchedLine    = false;
+        Line        fetchedLine;
     };
 
-    int numLines_;
-    int lineSize_;
-    int delay_;
-
+    int numLines_, lineSize_, delay_;
     DRAM*          lowerLevel_;
     WritePolicy    writePolicy_;
     AllocatePolicy allocatePolicy_;
@@ -114,16 +80,12 @@ private:
     std::vector<CacheLine> lines_;
     ActiveRequest          active_;
 
-    int  normalizeAddress  (int address) const;
-    int  getIndex          (int address) const;
-    int  getOffset         (int address) const;
-    int  getTag            (int address) const;
-    int  getLineBaseAddress(int address) const;
-    int  totalWords        ()            const;
-    bool isHit             (int index, int tag) const;
-
-    // Returns the DRAM base address of the line currently at cache index `idx`
-    int victimBaseAddress(int idx) const;
-
+    int  normalizeAddress  (int a) const;
+    int  getIndex          (int a) const;
+    int  getOffset         (int a) const;
+    int  getTag            (int a) const;
+    int  getLineBaseAddress(int a) const;
+    bool isHit(int index, int tag) const;
+    int  victimBaseAddress (int idx) const;
     StageId getActiveStage() const;
 };
