@@ -742,27 +742,25 @@ sim_gui_autogen/timestamp: /Applications/Xcode.app/Contents/Developer/Platforms/
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/limits.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/ptrcheck.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/stdarg.h \
-  /Users/nguyenhoangnam/Downloads/files-2/CMakeLists.txt \
+  /Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/CMakeLists.txt \
   CMakeFiles/4.3.1/CMakeCXXCompiler.cmake \
   CMakeFiles/4.3.1/CMakeSystem.cmake \
   sim_gui_autogen/moc_predefs.h \
-  /Users/nguyenhoangnam/Downloads/files-2/cache.cpp \
-  /Users/nguyenhoangnam/Downloads/files-2/cache.hpp \
-  /Users/nguyenhoangnam/Downloads/files-2/directmemif.cpp \
-  /Users/nguyenhoangnam/Downloads/files-2/directmemif.hpp \
-  /Users/nguyenhoangnam/Downloads/files-2/dram.cpp \
-  /Users/nguyenhoangnam/Downloads/files-2/dram.hpp \
-  /Users/nguyenhoangnam/Downloads/files-2/instruction.hpp \
-  /Users/nguyenhoangnam/Downloads/files-2/main_gui.cpp \
-  /Users/nguyenhoangnam/Downloads/files-2/mainwindow.cpp \
-  /Users/nguyenhoangnam/Downloads/files-2/mainwindow.hpp \
-  /Users/nguyenhoangnam/Downloads/files-2/memif.hpp \
-  /Users/nguyenhoangnam/Downloads/files-2/pipeline.cpp \
-  /Users/nguyenhoangnam/Downloads/files-2/pipeline.hpp \
-  /Users/nguyenhoangnam/Downloads/files-2/registerfile.hpp \
-  /Users/nguyenhoangnam/Downloads/files-2/seqexecutor.cpp \
-  /Users/nguyenhoangnam/Downloads/files-2/seqexecutor.hpp \
-  /Users/nguyenhoangnam/Downloads/files-2/simmode.hpp \
+  /Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/cache.cpp \
+  /Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/cache.hpp \
+  /Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/directmemif.cpp \
+  /Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/directmemif.hpp \
+  /Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/dram.cpp \
+  /Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/dram.hpp \
+  /Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/instruction.hpp \
+  /Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/main_gui.cpp \
+  /Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/mainwindow.cpp \
+  /Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/mainwindow.hpp \
+  /Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/memif.hpp \
+  /Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/pipeline.cpp \
+  /Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/pipeline.hpp \
+  /Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/registerfile.hpp \
+  /Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/simmode.hpp \
   /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/q17memory.h \
   /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/q20bit.h \
   /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/q20functional.h \
@@ -1616,8 +1614,6 @@ sim_gui_autogen/timestamp: /Applications/Xcode.app/Contents/Developer/Platforms/
 
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qsizepolicy.h:
 
-/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qrubberband.h:
-
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qlistwidget.h:
 
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qgroupbox.h:
@@ -1768,8 +1764,6 @@ sim_gui_autogen/timestamp: /Applications/Xcode.app/Contents/Developer/Platforms/
 
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qobject.h:
 
-/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qnamespace.h:
-
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qminmax.h:
 
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qmath.h:
@@ -1820,17 +1814,9 @@ sim_gui_autogen/timestamp: /Applications/Xcode.app/Contents/Developer/Platforms/
 
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qcontiguouscache.h:
 
-/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qcontainertools_impl.h:
-
 /opt/homebrew/lib/cmake/Qt6DBus/Qt6DBusVersionlessAliasTargets.cmake:
 
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qcontainerfwd.h:
-
-/opt/homebrew/share/cmake/Modules/Platform/Apple-Clang.cmake:
-
-/opt/homebrew/lib/cmake/Qt6Gui/Qt6QICOPluginConfig.cmake:
-
-/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qcompare_impl.h:
 
 /opt/homebrew/lib/cmake/Qt6DBus/Qt6DBusConfigVersion.cmake:
 
@@ -1849,8 +1835,6 @@ sim_gui_autogen/timestamp: /Applications/Xcode.app/Contents/Developer/Platforms/
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qbytearrayview.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__numeric/gcd_lcm.h:
-
-/Users/nguyenhoangnam/Downloads/files-2/dram.cpp:
 
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qbytearraylist.h:
 
@@ -1874,8 +1858,6 @@ sim_gui_autogen/timestamp: /Applications/Xcode.app/Contents/Developer/Platforms/
 
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qalgorithms.h:
 
-/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/q20utility.h:
-
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qdatastream.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/rotate_copy.h:
@@ -1890,27 +1872,39 @@ sim_gui_autogen/timestamp: /Applications/Xcode.app/Contents/Developer/Platforms/
 
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/q17memory.h:
 
-/Users/nguyenhoangnam/Downloads/files-2/seqexecutor.cpp:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__configuration/abi.h:
 
-/Users/nguyenhoangnam/Downloads/files-2/registerfile.hpp:
+/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qanystringview.h:
 
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/function.h:
+/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/pipeline.cpp:
 
-/Users/nguyenhoangnam/Downloads/files-2/memif.hpp:
+/opt/homebrew/share/cmake/Modules/Platform/Apple-Clang.cmake:
 
-/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qatomic.h:
+/opt/homebrew/lib/cmake/Qt6Gui/Qt6QICOPluginConfig.cmake:
 
-/Users/nguyenhoangnam/Downloads/files-2/instruction.hpp:
+/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qcompare_impl.h:
 
-/Users/nguyenhoangnam/Downloads/files-2/directmemif.hpp:
+/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/memif.hpp:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/empty.h:
+
+/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/main_gui.cpp:
+
+/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/instruction.hpp:
+
+/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/q20utility.h:
+
+/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/dram.hpp:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/inplace_merge.h:
+
+/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/cache.cpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_mach_port_t.h:
 
 CMakeFiles/4.3.1/CMakeCXXCompiler.cmake:
 
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/execution:
-
-/Users/nguyenhoangnam/Downloads/files-2/CMakeLists.txt:
+/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/CMakeLists.txt:
 
 /opt/homebrew/lib/cmake/Qt6Gui/Qt6QICOPluginTargetsPrecheck.cmake:
 
@@ -2092,6 +2086,8 @@ CMakeFiles/4.3.1/CMakeCXXCompiler.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/stdio.h:
 
+/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/registerfile.hpp:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/stack:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__concepts/copyable.h:
@@ -2101,12 +2097,6 @@ CMakeFiles/4.3.1/CMakeCXXCompiler.cmake:
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtGui.framework/Versions/A/Headers/qfontinfo.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/ostream:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_posix_availability.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/construct_at.h:
-
-/Users/nguyenhoangnam/Downloads/files-2/cache.hpp:
 
 /opt/homebrew/lib/cmake/Qt6Gui/Qt6QICOPluginAdditionalTargetInfo.cmake:
 
@@ -2179,6 +2169,8 @@ CMakeFiles/4.3.1/CMakeCXXCompiler.cmake:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/clocale:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/cassert:
+
+/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qcontainertools_impl.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/bitset:
 
@@ -2284,8 +2276,6 @@ sim_gui_autogen/moc_predefs.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/void_t.h:
 
-/Users/nguyenhoangnam/Downloads/files-2/pipeline.cpp:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/underlying_type.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/utility:
@@ -2323,6 +2313,8 @@ sim_gui_autogen/moc_predefs.h:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__tuple/ignore.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/remove_all_extents.h:
+
+/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/mainwindow.cpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/promote.h:
 
@@ -2365,8 +2357,6 @@ sim_gui_autogen/moc_predefs.h:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/is_trivially_destructible.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/is_trivially_copyable.h:
-
-/Users/nguyenhoangnam/Downloads/files-2/pipeline.hpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/is_trivially_assignable.h:
 
@@ -2486,9 +2476,15 @@ sim_gui_autogen/moc_predefs.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/datasizeof.h:
 
+/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qnamespace.h:
+
+/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/directmemif.cpp:
+
 /opt/homebrew/lib/cmake/Qt6Core/Qt6QDarwinLocationPermissionPluginConfig.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/copy_cvref.h:
+
+/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/dram.cpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/copy_cv.h:
 
@@ -2548,10 +2544,6 @@ sim_gui_autogen/moc_predefs.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__tuple/tuple_like_no_subrange.h:
 
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/movable_box.h:
-
-/Users/nguyenhoangnam/Downloads/files-2/mainwindow.hpp:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__tuple/tuple_indices.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/numeric:
@@ -2584,6 +2576,8 @@ sim_gui_autogen/moc_predefs.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__system_error/error_condition.h:
 
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/execution:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__system_error/error_category.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__string/extern_template_lists.h:
@@ -2593,6 +2587,10 @@ sim_gui_autogen/moc_predefs.h:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/remove_const.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__string/constexpr_c_functions.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/dangling.h:
+
+/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/pipeline.hpp:
 
 /opt/homebrew/lib/cmake/Qt6/FindWrapVulkanHeaders.cmake:
 
@@ -2614,7 +2612,11 @@ sim_gui_autogen/moc_predefs.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/subrange.h:
 
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/empty.h:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/movable_box.h:
+
+/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtWidgets.framework/Versions/A/Headers/qrubberband.h:
+
+/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/simmode.hpp:
 
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qversiontagging.h:
 
@@ -2629,8 +2631,6 @@ sim_gui_autogen/moc_predefs.h:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__new/launder.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ios/fpos.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/dangling.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/aligned_union.h:
 
@@ -2692,8 +2692,6 @@ sim_gui_autogen/moc_predefs.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__math/inverse_hyperbolic_functions.h:
 
-/Users/nguyenhoangnam/Downloads/files-2/dram.hpp:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__new/global_new_delete.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/size.h:
@@ -2738,13 +2736,15 @@ sim_gui_autogen/moc_predefs.h:
 
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qconfig.h:
 
-/Users/nguyenhoangnam/Downloads/files-2/cache.cpp:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/decay.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/inout_ptr.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__concepts/different_from.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_posix_availability.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/construct_at.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__utility/integer_sequence.h:
 
@@ -2816,8 +2816,6 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qobjectdefs.h:
 
-/Users/nguyenhoangnam/Downloads/files-2/main_gui.cpp:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/reverse_iterator.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_time.h:
@@ -2857,8 +2855,6 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/move_iterator.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_ssize_t.h:
-
-/Users/nguyenhoangnam/Downloads/files-2/seqexecutor.hpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/iter_move.h:
 
@@ -3048,6 +3044,8 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__atomic/atomic_init.h:
 
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/function.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/is_valid.h:
 
 /opt/homebrew/lib/cmake/Qt6Core/Qt6QDarwinBluetoothPermissionPluginTargetsPrecheck.cmake:
@@ -3178,8 +3176,6 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/ostream.h:
 
-/Users/nguyenhoangnam/Downloads/files-2/directmemif.cpp:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__chrono/system_clock.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__system_error/errc.h:
@@ -3262,10 +3258,6 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__concepts/totally_ordered.h:
 
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__configuration/abi.h:
-
-/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qanystringview.h:
-
 /opt/homebrew/lib/cmake/Qt6Gui/Qt6QJpegPluginAdditionalTargetInfo.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__bit/countr.h:
@@ -3284,8 +3276,6 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__atomic/to_gcc_order.h:
 
-/Users/nguyenhoangnam/Downloads/files-2/simmode.hpp:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__concepts/common_reference_with.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__atomic/kill_dependency.h:
@@ -3293,8 +3283,6 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__configuration/compiler.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/AvailabilityInternal.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/inplace_merge.h:
 
 /opt/homebrew/lib/cmake/Qt6/QtPublicSbomQtEntityHelpers.cmake:
 
@@ -3319,6 +3307,8 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_fd_zero.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__atomic/atomic_sync.h:
+
+/opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qatomic.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__utility/forward.h:
 
@@ -3512,6 +3502,8 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/move.h:
 
+/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/directmemif.hpp:
+
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qmalloc.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/enable_borrowed_range.h:
@@ -3547,6 +3539,8 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/istream_iterator.h:
 
 /opt/homebrew/Cellar/qtbase/6.11.0/lib/QtCore.framework/Versions/A/Headers/qcontainerinfo.h:
+
+/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/mainwindow.hpp:
 
 /opt/homebrew/lib/cmake/Qt6DBusTools/Qt6DBusToolsTargetsPrecheck.cmake:
 
@@ -3692,6 +3686,8 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/generate_n.h:
 
+/Users/nguyenhoangnam/Desktop/Senior/Semester\ 2/CS\ 535/Simulator/cs535-isa-simulation/cache.hpp:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/copy_move_common.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/qos.h:
@@ -3775,8 +3771,6 @@ CMakeFiles/4.3.1/CMakeSystem.cmake:
 /opt/homebrew/lib/cmake/Qt6Core/Qt6CoreVersionlessAliasTargets.cmake:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/wrap_iter.h:
-
-/Users/nguyenhoangnam/Downloads/files-2/mainwindow.cpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__math/abs.h:
 

@@ -22,7 +22,6 @@ set(CORE_SOURCES
     cache.cpp
     directmemif.cpp
     pipeline.cpp
-    seqexecutor.cpp
 )
 
 add_executable(sim_gui

@@ -15,7 +15,6 @@
 
 #include "simmode.hpp"
 #include "pipeline.hpp"
-#include "seqexecutor.hpp"
 #include "cache.hpp"
 #include "directmemif.hpp"
 #include "dram.hpp"
@@ -29,7 +28,8 @@ public:
 
 private slots:
     void onLoadFile();
-    void onStep();
+    void onStepCycle();
+    void onStepInstruction();
     void onRunToCompletion();
 
 private:
@@ -40,27 +40,27 @@ private:
 
     void refreshAll();
     void refreshPipelineDisplay();
-    void refreshSeqDisplay();
     void refreshInstructions();
     void refreshRegisters();
     void refreshCache();
     void refreshDRAM();
-    void refreshInfoBar();   // updates cycle + PC labels
+    void refreshInfoBar();
+
+    void checkDone();   // disables buttons and sets status when done
 
     static void    setStageStyle    (QLabel* label, const QString& color, const QString& text);
     static QString registerName     (int reg);
     static QString flagsDescription (int r31Value);
 
     // -----------------------------------------------------------------------
-    // Simulator objects
+    // Simulator objects — all four modes use Pipeline
     // -----------------------------------------------------------------------
     SimMode currentMode_ = SimMode::BOTH;
 
-    std::unique_ptr<DRAM>               dram_;
-    std::unique_ptr<Cache>              cache_;
-    std::unique_ptr<DirectMemIF>        directMem_;
-    std::unique_ptr<Pipeline>           pipeline_;
-    std::unique_ptr<SequentialExecutor> seqExec_;
+    std::unique_ptr<DRAM>        dram_;
+    std::unique_ptr<Cache>       cache_;
+    std::unique_ptr<DirectMemIF> directMem_;
+    std::unique_ptr<Pipeline>    pipeline_;
 
     std::vector<Instruction> program_;
     bool simReady_ = false;
@@ -76,23 +76,19 @@ private:
     QLabel*       modeDescLabel_;
 
     // -----------------------------------------------------------------------
-    // UI — info bar (cycle count + PC)
+    // UI — info bar
     // -----------------------------------------------------------------------
-    QLabel* cycleValueLabel_;  // shows the cycle number
-    QLabel* pcValueLabel_;     // shows the current PC
+    QLabel* cycleValueLabel_;
+    QLabel* pcValueLabel_;
 
     // -----------------------------------------------------------------------
-    // UI — top display: pipeline stage boxes OR sequential instruction box
+    // UI — pipeline stage boxes (shown for all four modes)
     // -----------------------------------------------------------------------
-    QWidget* pipeWidget_;
-    QWidget* seqWidget_;
-
     QLabel* stageIF_;
     QLabel* stageID_;
     QLabel* stageEX_;
     QLabel* stageMEM_;
     QLabel* stageWB_;
-    QLabel* seqInstrLabel_;
 
     // -----------------------------------------------------------------------
     // UI — data panels
@@ -118,7 +114,8 @@ private:
     // -----------------------------------------------------------------------
     // UI — controls
     // -----------------------------------------------------------------------
-    QPushButton* stepBtn_;
+    QPushButton* stepCycleBtn_;
+    QPushButton* stepInstrBtn_;
     QPushButton* runBtn_;
     QLabel*      statusLabel_;
 };

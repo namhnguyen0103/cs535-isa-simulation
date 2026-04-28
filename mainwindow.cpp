@@ -20,11 +20,8 @@ static const char* C_EX       = "#F9E79F";
 static const char* C_MEM      = "#F5CBA7";
 static const char* C_WB       = "#D7BDE2";
 static const char* C_SQUASHED = "#F1948A";
-static const char* C_SEQ      = "#D5F5E3";
 static const char* C_IDLE     = "#E5E7E9";
 
-// Safety limit — if the simulation hasn't finished after this many cycles,
-// stop and warn the user rather than hanging the UI thread.
 static constexpr int MAX_CYCLES = 100000;
 
 static QString hexStr(int v) {
@@ -85,7 +82,7 @@ void MainWindow::setupUI() {
     modeGroup_->addButton(modeBoth_,          3);
 
     modeDescLabel_ = new QLabel(
-        "Full simulation: 5-stage pipeline + cache. Shows stalls, squashes, cache hits and misses.");
+        "Full simulation: 5-stage pipeline + cache. All 5 stages run concurrently.");
     modeDescLabel_->setStyleSheet("color: #444; font-size: 9pt; font-style: italic;");
 
     modeHL->addWidget(modeNoPipeNoCache_);
@@ -99,32 +96,26 @@ void MainWindow::setupUI() {
 
     connect(modeGroup_, QOverload<int>::of(&QButtonGroup::idClicked), [this](int id) {
         static const char* descs[4] = {
-            "Sequential — one instruction at a time. Memory hits DRAM directly every access.",
-            "5-stage pipeline with stalls and squashes. Memory bypasses cache — every access hits DRAM.",
-            "Sequential — one instruction at a time, with cache hierarchy.",
-            "Full simulation: 5-stage pipeline + cache. Shows stalls, squashes, cache hits and misses."
+            "No pipeline: one instruction at a time through all 5 stages. Memory hits DRAM directly. Each instruction takes ≥5 cycles.",
+            "No pipeline: one instruction at a time through all 5 stages. Memory hits DRAM directly. Each instruction takes ≥5 cycles.",
+            "No pipeline: one instruction at a time through all 5 stages. Memory goes through cache. Each instruction takes ≥5 cycles.",
+            "Full pipeline + cache: all 5 stages run concurrently. Shows data hazard stalls and branch squashes."
         };
         modeDescLabel_->setText(descs[id]);
         currentMode_ = static_cast<SimMode>(id);
-
-        bool usePipe  = (id == 1 || id == 3);
         bool useCache = (id == 2 || id == 3);
-
-        pipeWidget_->setVisible(usePipe);
-        seqWidget_->setVisible(!usePipe);
         cachePanel_->setVisible(useCache);
         cacheCfgBox_->setVisible(useCache);
-        stepBtn_->setText(usePipe ? "Step One Cycle  ▶" : "Step One Instruction  ▶");
-
         simReady_ = false;
-        stepBtn_->setEnabled(false);
+        stepCycleBtn_->setEnabled(false);
+        stepInstrBtn_->setEnabled(false);
         runBtn_->setEnabled(false);
         statusLabel_->setText("Mode changed — reload your file to apply.");
         refreshInfoBar();
     });
 
     // -----------------------------------------------------------------------
-    // 2. Info bar — Clock Cycle and Program Counter
+    // 2. Info bar
     // -----------------------------------------------------------------------
     QFrame* infoBar = new QFrame();
     infoBar->setFrameShape(QFrame::StyledPanel);
@@ -152,25 +143,21 @@ void MainWindow::setupUI() {
     };
 
     infoHL->addLayout(makeCounter("CLOCK CYCLE", cycleValueLabel_,
-        "Total clock cycles elapsed since the simulation started."));
-
+        "Total clock cycles elapsed."));
     QFrame* sep = new QFrame();
     sep->setFrameShape(QFrame::VLine);
     sep->setStyleSheet("color: #ccc;");
     infoHL->addWidget(sep);
-
     infoHL->addLayout(makeCounter("PROGRAM COUNTER (PC)", pcValueLabel_,
-        "In pipeline mode: address of the next instruction to be fetched.\n"
-        "In sequential mode: address of the next instruction to be executed."));
-
+        "Address of the next instruction to be fetched."));
     infoHL->addStretch();
     root->addWidget(infoBar);
 
     // -----------------------------------------------------------------------
-    // 3. Pipeline stage boxes / sequential instruction box
+    // 3. Pipeline stage boxes — shown for ALL four modes
     // -----------------------------------------------------------------------
-    pipeWidget_ = new QWidget();
-    QHBoxLayout* pipeHL = new QHBoxLayout(pipeWidget_);
+    QWidget* pipeWidget = new QWidget();
+    QHBoxLayout* pipeHL = new QHBoxLayout(pipeWidget);
     pipeHL->setContentsMargins(0,0,0,0);
 
     auto makeStageBox = [&](const QString& title, QLabel*& lbl) {
@@ -192,26 +179,7 @@ void MainWindow::setupUI() {
     pipeHL->addStretch();
     for (auto* l : {stageIF_, stageID_, stageEX_, stageMEM_, stageWB_})
         setStageStyle(l, C_IDLE, "---");
-
-    seqWidget_ = new QWidget();
-    seqWidget_->setVisible(false);
-    QHBoxLayout* seqHL = new QHBoxLayout(seqWidget_);
-    seqHL->setContentsMargins(0,0,0,0);
-    QGroupBox* seqBox = new QGroupBox("Current Instruction");
-    QVBoxLayout* seqVL = new QVBoxLayout(seqBox);
-    seqInstrLabel_ = new QLabel("---");
-    seqInstrLabel_->setAlignment(Qt::AlignCenter);
-    QFont sf = seqInstrLabel_->font(); sf.setPointSize(11); sf.setBold(true);
-    seqInstrLabel_->setFont(sf);
-    seqVL->addWidget(seqInstrLabel_);
-    seqHL->addWidget(seqBox, 1);
-
-    QWidget* topArea = new QWidget();
-    QVBoxLayout* topVL = new QVBoxLayout(topArea);
-    topVL->setContentsMargins(0,0,0,0);
-    topVL->addWidget(pipeWidget_);
-    topVL->addWidget(seqWidget_);
-    root->addWidget(topArea);
+    root->addWidget(pipeWidget);
 
     // -----------------------------------------------------------------------
     // 4. Data panels
@@ -242,22 +210,19 @@ void MainWindow::setupUI() {
 
     QGroupBox* dramCfg = new QGroupBox("DRAM Configuration");
     QFormLayout* dramForm = new QFormLayout(dramCfg);
-    dramNumLinesSpin_ = new QSpinBox(); dramNumLinesSpin_->setRange(4, 512); dramNumLinesSpin_->setValue(64);
-    dramLineSizeSpin_ = new QSpinBox(); dramLineSizeSpin_->setRange(1, 32);  dramLineSizeSpin_->setValue(4);
-    dramDelaySpin_    = new QSpinBox(); dramDelaySpin_->setRange(0, 50);     dramDelaySpin_->setValue(3);
+    dramNumLinesSpin_ = new QSpinBox(); dramNumLinesSpin_->setRange(4,512); dramNumLinesSpin_->setValue(64);
+    dramLineSizeSpin_ = new QSpinBox(); dramLineSizeSpin_->setRange(1,32);  dramLineSizeSpin_->setValue(4);
+    dramDelaySpin_    = new QSpinBox(); dramDelaySpin_->setRange(0,50);     dramDelaySpin_->setValue(3);
     dramCapLabel_ = new QLabel();
     dramCapLabel_->setStyleSheet("color: #555; font-size: 9pt;");
-
     auto updateCap = [this]() {
         int total = dramNumLinesSpin_->value() * dramLineSizeSpin_->value();
         dramCapLabel_->setText(
-            QString("Total: %1 words  (addresses 0–%2)").arg(total).arg(total - 1));
+            QString("Total: %1 words  (addresses 0–%2)").arg(total).arg(total-1));
     };
     connect(dramNumLinesSpin_, QOverload<int>::of(&QSpinBox::valueChanged), [=](int){ updateCap(); });
     connect(dramLineSizeSpin_, QOverload<int>::of(&QSpinBox::valueChanged), [=](int v){
-        if (cacheLineSizeSpin_) cacheLineSizeSpin_->setValue(v);
-        updateCap();
-    });
+        if(cacheLineSizeSpin_) cacheLineSizeSpin_->setValue(v); updateCap(); });
     dramForm->addRow("Num Lines:",   dramNumLinesSpin_);
     dramForm->addRow("Line Size:",   dramLineSizeSpin_);
     dramForm->addRow("Delay (cyc):", dramDelaySpin_);
@@ -266,10 +231,10 @@ void MainWindow::setupUI() {
 
     cacheCfgBox_ = new QGroupBox("Cache Configuration");
     QFormLayout* cacheForm = new QFormLayout(cacheCfgBox_);
-    cacheNumLinesSpin_ = new QSpinBox(); cacheNumLinesSpin_->setRange(1, 64); cacheNumLinesSpin_->setValue(4);
-    cacheLineSizeSpin_ = new QSpinBox(); cacheLineSizeSpin_->setRange(1, 32); cacheLineSizeSpin_->setValue(4);
+    cacheNumLinesSpin_ = new QSpinBox(); cacheNumLinesSpin_->setRange(1,64); cacheNumLinesSpin_->setValue(4);
+    cacheLineSizeSpin_ = new QSpinBox(); cacheLineSizeSpin_->setRange(1,32); cacheLineSizeSpin_->setValue(4);
     cacheLineSizeSpin_->setEnabled(false);
-    cacheDelaySpin_    = new QSpinBox(); cacheDelaySpin_->setRange(0, 20);    cacheDelaySpin_->setValue(1);
+    cacheDelaySpin_    = new QSpinBox(); cacheDelaySpin_->setRange(0,20);    cacheDelaySpin_->setValue(1);
     cacheForm->addRow("Num Lines:",          cacheNumLinesSpin_);
     cacheForm->addRow("Line Size (= DRAM):", cacheLineSizeSpin_);
     cacheForm->addRow("Delay (cyc):",        cacheDelaySpin_);
@@ -277,18 +242,32 @@ void MainWindow::setupUI() {
     QVBoxLayout* btnVL = new QVBoxLayout();
     QPushButton* loadBtn = new QPushButton("Load Instructions File…");
     loadBtn->setMinimumWidth(210);
-    stepBtn_ = new QPushButton("Step One Cycle  ▶");
-    stepBtn_->setMinimumWidth(210);
-    stepBtn_->setEnabled(false);
+
+    stepCycleBtn_ = new QPushButton("Step One Cycle  ▶");
+    stepCycleBtn_->setMinimumWidth(210);
+    stepCycleBtn_->setEnabled(false);
+    stepCycleBtn_->setToolTip("Advance exactly one clock cycle.");
+
+    stepInstrBtn_ = new QPushButton("Step One Instruction  ▶|");
+    stepInstrBtn_->setMinimumWidth(210);
+    stepInstrBtn_->setEnabled(false);
+    stepInstrBtn_->setToolTip(
+        "Advance until one complete instruction exits WB.\n"
+        "In no-pipeline modes this is always ≥5 cycles.\n"
+        "In pipeline mode this advances to the next WB completion.");
+
     runBtn_ = new QPushButton("Run to Completion  ▶▶");
     runBtn_->setMinimumWidth(210);
     runBtn_->setEnabled(false);
+
     statusLabel_ = new QLabel("No program loaded.");
     statusLabel_->setStyleSheet("color: #555;");
     statusLabel_->setWordWrap(true);
+
     btnVL->addWidget(loadBtn);
     btnVL->addSpacing(4);
-    btnVL->addWidget(stepBtn_);
+    btnVL->addWidget(stepCycleBtn_);
+    btnVL->addWidget(stepInstrBtn_);
     btnVL->addWidget(runBtn_);
     btnVL->addStretch();
     btnVL->addWidget(statusLabel_);
@@ -298,11 +277,61 @@ void MainWindow::setupUI() {
     bottomHL->addLayout(btnVL);
     root->addLayout(bottomHL);
 
-    connect(loadBtn,  &QPushButton::clicked, this, &MainWindow::onLoadFile);
-    connect(stepBtn_, &QPushButton::clicked, this, &MainWindow::onStep);
-    connect(runBtn_,  &QPushButton::clicked, this, &MainWindow::onRunToCompletion);
+    connect(loadBtn,       &QPushButton::clicked, this, &MainWindow::onLoadFile);
+    connect(stepCycleBtn_, &QPushButton::clicked, this, &MainWindow::onStepCycle);
+    connect(stepInstrBtn_, &QPushButton::clicked, this, &MainWindow::onStepInstruction);
+    connect(runBtn_,       &QPushButton::clicked, this, &MainWindow::onRunToCompletion);
 }
 
+// ---------------------------------------------------------------------------
+// initSimulator
+// ---------------------------------------------------------------------------
+void MainWindow::initSimulator(const std::vector<Instruction>&               program,
+                               const std::vector<std::pair<int,DRAM::Line>>& dataBlocks) {
+    pipeline_.reset(); cache_.reset(); directMem_.reset();
+
+    int dramLines  = dramNumLinesSpin_->value();
+    int lineSize   = dramLineSizeSpin_->value();
+    int dramDelay  = dramDelaySpin_->value();
+    int cacheLines = cacheNumLinesSpin_->value();
+    int cacheDelay = cacheDelaySpin_->value();
+
+    dram_ = std::make_unique<DRAM>(dramLines, lineSize, dramDelay);
+    loadProgramToDRAM(program, *dram_, PROGRAM_BASE);
+    for (auto& [addr, line] : dataBlocks) {
+        DRAM::Line padded(lineSize, 0);
+        for (int i = 0; i < std::min((int)line.size(), lineSize); ++i) padded[i] = line[i];
+        dram_->setLineDirect(addr, padded);
+    }
+
+    bool useCache   = (currentMode_ == SimMode::CACHE_ONLY || currentMode_ == SimMode::BOTH);
+    bool noOverlap  = (currentMode_ == SimMode::NO_PIPE_NO_CACHE ||
+                       currentMode_ == SimMode::CACHE_ONLY);
+
+    MemIF* mem = nullptr;
+    if (useCache) {
+        cache_ = std::make_unique<Cache>(cacheLines, lineSize, cacheDelay, dram_.get(),
+            Cache::WritePolicy::WRITE_BACK, Cache::AllocatePolicy::WRITE_ALLOCATE);
+        mem = cache_.get();
+    } else {
+        directMem_ = std::make_unique<DirectMemIF>(dram_.get());
+        mem = directMem_.get();
+    }
+
+    // All four modes use Pipeline — noOverlap=true prevents instruction overlap
+    pipeline_ = std::make_unique<Pipeline>(
+        PROGRAM_BASE, (int)program.size(), mem, noOverlap);
+
+    simReady_ = true;
+    stepCycleBtn_->setEnabled(true);
+    stepInstrBtn_->setEnabled(true);
+    runBtn_->setEnabled(true);
+    refreshAll();
+}
+
+// ---------------------------------------------------------------------------
+// onLoadFile
+// ---------------------------------------------------------------------------
 void MainWindow::onLoadFile() {
     QString path = QFileDialog::getOpenFileName(
         this, "Open Instructions File", "", "Text Files (*.txt);;All Files (*)");
@@ -320,7 +349,7 @@ void MainWindow::onLoadFile() {
             if (norm < numInstrs)
                 QMessageBox::warning(this, "Address Collision",
                     QString("DATA at address %1 (→ %2) overlaps instructions (0–%3).")
-                    .arg(addr).arg(norm).arg(numInstrs - 1));
+                    .arg(addr).arg(norm).arg(numInstrs-1));
         }
         program_ = parsed.program;
         initSimulator(parsed.program, parsed.dataBlocks);
@@ -333,128 +362,75 @@ void MainWindow::onLoadFile() {
     }
 }
 
-void MainWindow::initSimulator(const std::vector<Instruction>&               program,
-                               const std::vector<std::pair<int,DRAM::Line>>& dataBlocks) {
-    pipeline_.reset(); seqExec_.reset(); cache_.reset(); directMem_.reset();
-
-    int dramLines  = dramNumLinesSpin_->value();
-    int lineSize   = dramLineSizeSpin_->value();
-    int dramDelay  = dramDelaySpin_->value();
-    int cacheLines = cacheNumLinesSpin_->value();
-    int cacheDelay = cacheDelaySpin_->value();
-
-    dram_ = std::make_unique<DRAM>(dramLines, lineSize, dramDelay);
-    loadProgramToDRAM(program, *dram_, PROGRAM_BASE);
-    for (auto& [addr, line] : dataBlocks) {
-        DRAM::Line padded(lineSize, 0);
-        for (int i = 0; i < std::min((int)line.size(), lineSize); ++i) padded[i] = line[i];
-        dram_->setLineDirect(addr, padded);
-    }
-
-    bool usePipe  = (currentMode_ == SimMode::PIPE_ONLY  || currentMode_ == SimMode::BOTH);
-    bool useCache = (currentMode_ == SimMode::CACHE_ONLY || currentMode_ == SimMode::BOTH);
-
-    MemIF* mem = nullptr;
-    if (useCache) {
-        cache_ = std::make_unique<Cache>(cacheLines, lineSize, cacheDelay, dram_.get(),
-            Cache::WritePolicy::WRITE_BACK, Cache::AllocatePolicy::WRITE_ALLOCATE);
-        mem = cache_.get();
-    } else {
-        directMem_ = std::make_unique<DirectMemIF>(dram_.get());
-        mem = directMem_.get();
-    }
-
-    if (usePipe)
-        pipeline_ = std::make_unique<Pipeline>(PROGRAM_BASE, (int)program.size(), mem);
-    else
-        seqExec_  = std::make_unique<SequentialExecutor>(PROGRAM_BASE, (int)program.size(), mem);
-
-    stepBtn_->setText(usePipe ? "Step One Cycle  ▶" : "Step One Instruction  ▶");
-    simReady_ = true;
-    stepBtn_->setEnabled(true);
-    runBtn_->setEnabled(true);
+// ---------------------------------------------------------------------------
+// onStepCycle — advance exactly one clock cycle
+// ---------------------------------------------------------------------------
+void MainWindow::onStepCycle() {
+    if (!simReady_ || !pipeline_) return;
+    pipeline_->tick();
     refreshAll();
+    checkDone();
 }
 
-void MainWindow::onStep() {
-    if (!simReady_) return;
-    bool usePipe = (currentMode_ == SimMode::PIPE_ONLY || currentMode_ == SimMode::BOTH);
-
-    if (usePipe && pipeline_) {
-        pipeline_->tick();
-        refreshAll();
-        if (pipeline_->isDone()) {
-            stepBtn_->setEnabled(false); runBtn_->setEnabled(false);
-            statusLabel_->setText(
-                QString("Done — %1 cycles  [%2]")
-                .arg(pipeline_->getCycleCount())
-                .arg(QString::fromStdString(simModeName(currentMode_))));
-        }
-    } else if (!usePipe && seqExec_) {
-        seqExec_->step();
-        refreshAll();
-        if (seqExec_->isDone()) {
-            stepBtn_->setEnabled(false); runBtn_->setEnabled(false);
-            statusLabel_->setText(
-                QString("Done — %1 cycles  [%2]")
-                .arg(seqExec_->getCycleCount())
-                .arg(QString::fromStdString(simModeName(currentMode_))));
-        }
-    }
+// ---------------------------------------------------------------------------
+// onStepInstruction — advance until one instruction completes WB
+// ---------------------------------------------------------------------------
+void MainWindow::onStepInstruction() {
+    if (!simReady_ || !pipeline_) return;
+    pipeline_->stepInstruction();
+    refreshAll();
+    checkDone();
 }
 
+// ---------------------------------------------------------------------------
+// onRunToCompletion
+// ---------------------------------------------------------------------------
 void MainWindow::onRunToCompletion() {
-    if (!simReady_) return;
-    bool usePipe = (currentMode_ == SimMode::PIPE_ONLY || currentMode_ == SimMode::BOTH);
-
-    int cyclesBefore = usePipe
-        ? (pipeline_ ? pipeline_->getCycleCount() : 0)
-        : (seqExec_  ? seqExec_->getCycleCount()  : 0);
+    if (!simReady_ || !pipeline_) return;
 
     int cyclesRun = 0;
     bool hitLimit = false;
-
-    if (usePipe && pipeline_) {
-        while (!pipeline_->isDone()) {
-            pipeline_->tick();
-            if (++cyclesRun > MAX_CYCLES) { hitLimit = true; break; }
-        }
-    } else if (!usePipe && seqExec_) {
-        while (!seqExec_->isDone()) {
-            seqExec_->step();
-            if (++cyclesRun > MAX_CYCLES) { hitLimit = true; break; }
-        }
+    while (!pipeline_->isDone()) {
+        pipeline_->tick();
+        if (++cyclesRun > MAX_CYCLES) { hitLimit = true; break; }
     }
 
     refreshAll();
 
     if (hitLimit) {
         QMessageBox::warning(this, "Cycle Limit Reached",
-            QString("Simulation did not complete after %1 cycles.\n\n"
-                    "This may indicate an infinite loop in your program, "
-                    "or a very long-running simulation.")
+            QString("Simulation did not complete after %1 cycles.\n"
+                    "This may indicate an infinite loop in your program.")
             .arg(MAX_CYCLES));
         statusLabel_->setText(
             QString("Stopped at cycle limit (%1 cycles)  [%2]")
-            .arg(cyclesBefore + cyclesRun)
+            .arg(pipeline_->getCycleCount())
             .arg(QString::fromStdString(simModeName(currentMode_))));
         return;
     }
 
-    stepBtn_->setEnabled(false);
-    runBtn_->setEnabled(false);
+    checkDone();
+}
 
-    int totalCycles = usePipe ? pipeline_->getCycleCount() : seqExec_->getCycleCount();
+// ---------------------------------------------------------------------------
+// checkDone
+// ---------------------------------------------------------------------------
+void MainWindow::checkDone() {
+    if (!pipeline_ || !pipeline_->isDone()) return;
+    stepCycleBtn_->setEnabled(false);
+    stepInstrBtn_->setEnabled(false);
+    runBtn_->setEnabled(false);
     statusLabel_->setText(
         QString("Done — %1 cycles  [%2]")
-        .arg(totalCycles)
+        .arg(pipeline_->getCycleCount())
         .arg(QString::fromStdString(simModeName(currentMode_))));
 }
 
+// ---------------------------------------------------------------------------
+// refreshAll
+// ---------------------------------------------------------------------------
 void MainWindow::refreshAll() {
-    bool usePipe = (currentMode_ == SimMode::PIPE_ONLY || currentMode_ == SimMode::BOTH);
-    if (usePipe) refreshPipelineDisplay();
-    else         refreshSeqDisplay();
+    refreshPipelineDisplay();
     refreshInfoBar();
     refreshInstructions();
     refreshRegisters();
@@ -463,20 +439,13 @@ void MainWindow::refreshAll() {
 }
 
 void MainWindow::refreshInfoBar() {
-    bool usePipe = (currentMode_ == SimMode::PIPE_ONLY || currentMode_ == SimMode::BOTH);
-    if (!simReady_) {
+    if (!simReady_ || !pipeline_) {
         cycleValueLabel_->setText("—");
         pcValueLabel_->setText("—");
         return;
     }
-    int cycle = 0, pc = 0;
-    if (usePipe && pipeline_) {
-        cycle = pipeline_->getCycleCount();
-        pc    = pipeline_->getCurrentPC();
-    } else if (!usePipe && seqExec_) {
-        cycle = seqExec_->getCycleCount();
-        pc    = seqExec_->getCurrentPC();
-    }
+    int cycle = pipeline_->getCycleCount();
+    int pc    = pipeline_->getCurrentPC();
     cycleValueLabel_->setText(QString::number(cycle));
     pcValueLabel_->setText(
         QString("%1  <span style='font-size:10pt; color:#555;'>(0x%2)</span>")
@@ -499,35 +468,21 @@ void MainWindow::refreshPipelineDisplay() {
     setStageStyle(stageWB_,  color(pipeline_->getWBLabel(),  C_WB),  q(pipeline_->getWBLabel()));
 }
 
-void MainWindow::refreshSeqDisplay() {
-    if (!seqExec_) return;
-    seqInstrLabel_->setText(QString::fromStdString(seqExec_->getLastLabel()));
-    seqInstrLabel_->setStyleSheet(
-        QString("background-color: %1; border-radius: 4px; padding: 6px;").arg(C_SEQ));
-}
-
 void MainWindow::refreshInstructions() {
     instrList_->clear();
-    if (program_.empty()) return;
-    bool usePipe = (currentMode_ == SimMode::PIPE_ONLY || currentMode_ == SimMode::BOTH);
-
+    if (program_.empty() || !pipeline_) return;
     auto getColor = [&](int pc) -> const char* {
-        if (usePipe && pipeline_) {
-            if (pc == pipeline_->getWBPC())  return C_WB;
-            if (pc == pipeline_->getMEMPC()) return C_MEM;
-            if (pc == pipeline_->getEXPC())  return C_EX;
-            if (pc == pipeline_->getIDPC())  return C_ID;
-            if (pc == pipeline_->getIFPC())  return C_IF;
-        } else if (!usePipe && seqExec_) {
-            if (pc == seqExec_->getLastPC()) return C_SEQ;
-        }
+        if (pc == pipeline_->getWBPC())  return C_WB;
+        if (pc == pipeline_->getMEMPC()) return C_MEM;
+        if (pc == pipeline_->getEXPC())  return C_EX;
+        if (pc == pipeline_->getIDPC())  return C_ID;
+        if (pc == pipeline_->getIFPC())  return C_IF;
         return nullptr;
     };
-
     for (int i = 0; i < (int)program_.size(); ++i) {
         int pc = PROGRAM_BASE + i;
         auto* item = new QListWidgetItem(
-            QString("%1: %2").arg(i, 3).arg(QString::fromStdString(program_[i].label)));
+            QString("%1: %2").arg(i,3).arg(QString::fromStdString(program_[i].label)));
         const char* c = getColor(pc);
         if (c) {
             item->setBackground(QColor(c));
@@ -540,14 +495,9 @@ void MainWindow::refreshInstructions() {
 
 void MainWindow::refreshRegisters() {
     regList_->clear();
-    bool usePipe = (currentMode_ == SimMode::PIPE_ONLY || currentMode_ == SimMode::BOTH);
-    auto getVal = [&](int i) -> int {
-        if (usePipe && pipeline_) return pipeline_->readRegister(i);
-        if (!usePipe && seqExec_) return seqExec_->readRegister(i);
-        return 0;
-    };
+    if (!pipeline_) return;
     for (int i = 0; i < NUM_REGS; ++i) {
-        int v = getVal(i);
+        int v = pipeline_->readRegister(i);
         QString line = (i == REG_FLAGS)
             ? QString("%1= %2  flags: %3").arg(registerName(i)).arg(hexStr(v)).arg(flagsDescription(v))
             : QString("%1= %2  (%3)").arg(registerName(i)).arg(v).arg(hexStr(v));
@@ -585,7 +535,6 @@ void MainWindow::refreshDRAM() {
     int lineSize  = dram_->getLineSize();
     int progLines = ((int)program_.size() + lineSize - 1) / lineSize;
     int dataLine  = DATA_BASE / lineSize;
-
     for (int i = 0; i < numLines; ++i) {
         DRAM::Line line = dram_->peekLine(i * lineSize);
         QStringList words;
@@ -593,8 +542,8 @@ void MainWindow::refreshDRAM() {
         QString tag = (i < progLines) ? " [instr]" : (i == dataLine ? " [data]" : "");
         auto* item = new QListWidgetItem(
             QString("Line %1%2 | %3").arg(i,2).arg(tag).arg(words.join(" ")));
-        if (i < progLines)       item->setForeground(QColor("#6C3483"));
-        else if (i == dataLine)  item->setForeground(QColor("#1A5276"));
+        if (i < progLines)      item->setForeground(QColor("#6C3483"));
+        else if (i == dataLine) item->setForeground(QColor("#1A5276"));
         dramList_->addItem(item);
     }
 }

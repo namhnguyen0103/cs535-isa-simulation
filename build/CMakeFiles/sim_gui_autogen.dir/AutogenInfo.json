@@ -1,16 +1,16 @@
 {
-	"BUILD_DIR" : "/Users/nguyenhoangnam/Downloads/files-2/build/sim_gui_autogen",
-	"CMAKE_BINARY_DIR" : "/Users/nguyenhoangnam/Downloads/files-2/build",
-	"CMAKE_CURRENT_BINARY_DIR" : "/Users/nguyenhoangnam/Downloads/files-2/build",
-	"CMAKE_CURRENT_SOURCE_DIR" : "/Users/nguyenhoangnam/Downloads/files-2",
+	"BUILD_DIR" : "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build/sim_gui_autogen",
+	"CMAKE_BINARY_DIR" : "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation",
 	"CMAKE_EXECUTABLE" : "/opt/homebrew/bin/cmake",
 	"CMAKE_LIST_FILES" : 
 	[
-		"/Users/nguyenhoangnam/Downloads/files-2/CMakeLists.txt",
-		"/Users/nguyenhoangnam/Downloads/files-2/build/CMakeFiles/4.3.1/CMakeSystem.cmake",
+		"/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/CMakeLists.txt",
+		"/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build/CMakeFiles/4.3.1/CMakeSystem.cmake",
 		"/opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake",
 		"/opt/homebrew/share/cmake/Modules/Platform/Darwin-Initialize.cmake",
-		"/Users/nguyenhoangnam/Downloads/files-2/build/CMakeFiles/4.3.1/CMakeCXXCompiler.cmake",
+		"/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build/CMakeFiles/4.3.1/CMakeCXXCompiler.cmake",
 		"/opt/homebrew/share/cmake/Modules/CMakeSystemSpecificInformation.cmake",
 		"/opt/homebrew/share/cmake/Modules/CMakeGenericSystem.cmake",
 		"/opt/homebrew/share/cmake/Modules/CMakeInitializeConfigs.cmake",
@@ -391,52 +391,46 @@
 		"/opt/homebrew/lib/cmake/Qt6Widgets/Qt6QMacStylePluginAdditionalTargetInfo.cmake",
 		"/opt/homebrew/lib/cmake/Qt6Widgets/Qt6WidgetsVersionlessAliasTargets.cmake"
 	],
-	"CMAKE_SOURCE_DIR" : "/Users/nguyenhoangnam/Downloads/files-2",
+	"CMAKE_SOURCE_DIR" : "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation",
 	"CROSS_CONFIG" : false,
-	"DEP_FILE" : "/Users/nguyenhoangnam/Downloads/files-2/build/sim_gui_autogen/deps",
+	"DEP_FILE" : "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build/sim_gui_autogen/deps",
 	"DEP_FILE_RULE_NAME" : "sim_gui_autogen/timestamp",
 	"HEADERS" : 
 	[
 		[
-			"/Users/nguyenhoangnam/Downloads/files-2/cache.hpp",
+			"/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/cache.hpp",
 			"MU",
 			"EWIEGA46WW/moc_cache.cpp",
 			null
 		],
 		[
-			"/Users/nguyenhoangnam/Downloads/files-2/directmemif.hpp",
+			"/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/directmemif.hpp",
 			"MU",
 			"EWIEGA46WW/moc_directmemif.cpp",
 			null
 		],
 		[
-			"/Users/nguyenhoangnam/Downloads/files-2/dram.hpp",
+			"/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/dram.hpp",
 			"MU",
 			"EWIEGA46WW/moc_dram.cpp",
 			null
 		],
 		[
-			"/Users/nguyenhoangnam/Downloads/files-2/mainwindow.hpp",
+			"/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/mainwindow.hpp",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
 			null
 		],
 		[
-			"/Users/nguyenhoangnam/Downloads/files-2/pipeline.hpp",
+			"/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/pipeline.hpp",
 			"MU",
 			"EWIEGA46WW/moc_pipeline.cpp",
-			null
-		],
-		[
-			"/Users/nguyenhoangnam/Downloads/files-2/seqexecutor.hpp",
-			"MU",
-			"EWIEGA46WW/moc_seqexecutor.cpp",
 			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
-	"INCLUDE_DIR" : "/Users/nguyenhoangnam/Downloads/files-2/build/sim_gui_autogen/include",
-	"MOC_COMPILATION_FILE" : "/Users/nguyenhoangnam/Downloads/files-2/build/sim_gui_autogen/mocs_compilation.cpp",
+	"INCLUDE_DIR" : "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build/sim_gui_autogen/include",
+	"MOC_COMPILATION_FILE" : "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build/sim_gui_autogen/mocs_compilation.cpp",
 	"MOC_DEFINITIONS" : [ "QT_CORE_LIB", "QT_GUI_LIB", "QT_NO_DEBUG", "QT_WIDGETS_LIB" ],
 	"MOC_DEPEND_FILTERS" : 
 	[
@@ -447,7 +441,7 @@
 	],
 	"MOC_INCLUDES" : 
 	[
-		"/Users/nguyenhoangnam/Downloads/files-2",
+		"/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation",
 		"/opt/homebrew/lib/QtWidgets.framework/Headers",
 		"/opt/homebrew/lib/QtWidgets.framework",
 		"/opt/homebrew/lib/QtCore.framework/Headers",
@@ -482,26 +476,49 @@
 		"-E",
 		"/opt/homebrew/share/cmake/Modules/CMakeCXXCompilerABI.cpp"
 	],
-	"MOC_PREDEFS_FILE" : "/Users/nguyenhoangnam/Downloads/files-2/build/sim_gui_autogen/moc_predefs.h",
+	"MOC_PREDEFS_FILE" : "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build/sim_gui_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : [],
 	"MULTI_CONFIG" : false,
 	"PARALLEL" : 8,
-	"PARSE_CACHE_FILE" : "/Users/nguyenhoangnam/Downloads/files-2/build/CMakeFiles/sim_gui_autogen.dir/ParseCache.txt",
+	"PARSE_CACHE_FILE" : "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build/CMakeFiles/sim_gui_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "/opt/homebrew/share/qt/libexec/moc",
 	"QT_UIC_EXECUTABLE" : "/opt/homebrew/share/qt/libexec/uic",
 	"QT_VERSION_MAJOR" : 6,
 	"QT_VERSION_MINOR" : 11,
-	"SETTINGS_FILE" : "/Users/nguyenhoangnam/Downloads/files-2/build/CMakeFiles/sim_gui_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE" : "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build/CMakeFiles/sim_gui_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
-		[ "/Users/nguyenhoangnam/Downloads/files-2/cache.cpp", "MU", null ],
-		[ "/Users/nguyenhoangnam/Downloads/files-2/directmemif.cpp", "MU", null ],
-		[ "/Users/nguyenhoangnam/Downloads/files-2/dram.cpp", "MU", null ],
-		[ "/Users/nguyenhoangnam/Downloads/files-2/main_gui.cpp", "MU", null ],
-		[ "/Users/nguyenhoangnam/Downloads/files-2/mainwindow.cpp", "MU", null ],
-		[ "/Users/nguyenhoangnam/Downloads/files-2/pipeline.cpp", "MU", null ],
-		[ "/Users/nguyenhoangnam/Downloads/files-2/seqexecutor.cpp", "MU", null ]
+		[
+			"/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/cache.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/directmemif.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/dram.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/main_gui.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/mainwindow.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/pipeline.cpp",
+			"MU",
+			null
+		]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],

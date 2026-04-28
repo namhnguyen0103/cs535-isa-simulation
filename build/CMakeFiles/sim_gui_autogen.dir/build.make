@@ -53,10 +53,10 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/nguyenhoangnam/Downloads/files-2
+CMAKE_SOURCE_DIR = "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/nguyenhoangnam/Downloads/files-2/build
+CMAKE_BINARY_DIR = "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build"
 
 # Utility rule file for sim_gui_autogen.
 
@@ -71,9 +71,9 @@ CMakeFiles/sim_gui_autogen: sim_gui_autogen/timestamp
 sim_gui_autogen/timestamp: /opt/homebrew/share/qt/libexec/moc
 sim_gui_autogen/timestamp: /opt/homebrew/share/qt/libexec/uic
 sim_gui_autogen/timestamp: CMakeFiles/sim_gui_autogen.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/nguyenhoangnam/Downloads/files-2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target sim_gui"
-	/opt/homebrew/bin/cmake -E cmake_autogen /Users/nguyenhoangnam/Downloads/files-2/build/CMakeFiles/sim_gui_autogen.dir/AutogenInfo.json ""
-	/opt/homebrew/bin/cmake -E touch /Users/nguyenhoangnam/Downloads/files-2/build/sim_gui_autogen/timestamp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target sim_gui"
+	/opt/homebrew/bin/cmake -E cmake_autogen "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build/CMakeFiles/sim_gui_autogen.dir/AutogenInfo.json" ""
+	/opt/homebrew/bin/cmake -E touch "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build/sim_gui_autogen/timestamp"
 
 CMakeFiles/sim_gui_autogen.dir/codegen:
 .PHONY : CMakeFiles/sim_gui_autogen.dir/codegen
@@ -92,6 +92,6 @@ CMakeFiles/sim_gui_autogen.dir/clean:
 .PHONY : CMakeFiles/sim_gui_autogen.dir/clean
 
 CMakeFiles/sim_gui_autogen.dir/depend:
-	cd /Users/nguyenhoangnam/Downloads/files-2/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/nguyenhoangnam/Downloads/files-2 /Users/nguyenhoangnam/Downloads/files-2 /Users/nguyenhoangnam/Downloads/files-2/build /Users/nguyenhoangnam/Downloads/files-2/build /Users/nguyenhoangnam/Downloads/files-2/build/CMakeFiles/sim_gui_autogen.dir/DependInfo.cmake "--color=$(COLOR)" sim_gui_autogen
+	cd "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation" "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation" "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build" "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build" "/Users/nguyenhoangnam/Desktop/Senior/Semester 2/CS 535/Simulator/cs535-isa-simulation/build/CMakeFiles/sim_gui_autogen.dir/DependInfo.cmake" "--color=$(COLOR)" sim_gui_autogen
 .PHONY : CMakeFiles/sim_gui_autogen.dir/depend
 

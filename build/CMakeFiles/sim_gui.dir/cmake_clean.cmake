@@ -14,8 +14,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/sim_gui.dir/mainwindow.cpp.o.d"
   "CMakeFiles/sim_gui.dir/pipeline.cpp.o"
   "CMakeFiles/sim_gui.dir/pipeline.cpp.o.d"
-  "CMakeFiles/sim_gui.dir/seqexecutor.cpp.o"
-  "CMakeFiles/sim_gui.dir/seqexecutor.cpp.o.d"
   "CMakeFiles/sim_gui.dir/sim_gui_autogen/mocs_compilation.cpp.o"
   "CMakeFiles/sim_gui.dir/sim_gui_autogen/mocs_compilation.cpp.o.d"
   "sim_gui"

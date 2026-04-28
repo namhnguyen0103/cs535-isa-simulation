@@ -1,10 +1,42 @@
 #include "pipeline.hpp"
 #include <climits>
 
-Pipeline::Pipeline(int programBase, int programSize, MemIF* mem)
+Pipeline::Pipeline(int programBase, int programSize, MemIF* mem, bool noOverlap)
     : programBase_(programBase), programEndPc_(programBase + programSize),
-      mem_(mem), pc_(programBase) {}
+      mem_(mem), noOverlap_(noOverlap), pc_(programBase) {}
 
+// ---------------------------------------------------------------------------
+// downstreamBusy — true when any stage after IF holds a valid latch.
+// Used by no-overlap mode to prevent IF from fetching until the pipeline drains.
+// ---------------------------------------------------------------------------
+bool Pipeline::downstreamBusy() const {
+    return ifid_.valid || idex_.valid || exmem_.valid || memwb_.valid;
+}
+
+// ---------------------------------------------------------------------------
+// stepInstruction — advance until one real (non-squashed) instruction exits WB
+// ---------------------------------------------------------------------------
+int Pipeline::stepInstruction() {
+    if (done_) return 0;
+    int cyclesBefore = cycle_;
+
+    // Tick until a non-squashed instruction completes WB, or until done
+    while (!done_) {
+        // Remember the WB latch before the tick
+        bool hadRealWB = memwb_.valid && !memwb_.squashed &&
+                         memwb_.instr.op != Opcode::NOP;
+        tick();
+        // After the tick, check if WB just consumed a real instruction
+        // (memwb_ is now cleared/replaced; the old value was consumed in WB)
+        if (hadRealWB) break;
+        if (done_) break;
+    }
+    return cycle_ - cyclesBefore;
+}
+
+// ---------------------------------------------------------------------------
+// tick()
+// ---------------------------------------------------------------------------
 bool Pipeline::tick() {
     if (done_) return false;
     cycle_++;
@@ -34,7 +66,7 @@ bool Pipeline::tick() {
         }
     } else { wbLabel_ = "---"; }
 
-    // ---- MEM — give MEM priority over IF on the shared memory interface ----
+    // ---- MEM ----
     bool memNeedsAccess = exmem_.valid && !exmem_.squashed &&
         (exmem_.instr.op == Opcode::LOAD || exmem_.instr.op == Opcode::STORE);
     if (memNeedsAccess)
@@ -68,14 +100,23 @@ bool Pipeline::tick() {
     } else { idLabel_ = "---"; }
 
     // ---- IF ----
+    // No-overlap mode: do not fetch a new instruction while any downstream
+    // stage (ID, EX, MEM, WB) still holds a valid latch.  This keeps exactly
+    // one instruction in the pipeline at a time.
     IFIDReg nextIfid = {};
     bool    ifStall  = false;
+
+    bool noOverlapBlock = noOverlap_ && downstreamBusy();
 
     if (dataHazard || memStall) {
         nextIfid = ifid_;
         ifLabel_ = ifid_.valid
             ? (ifid_.instr.label + (ifid_.squashed ? " [squashed]" : "") + " [frozen]")
             : "---";
+    } else if (noOverlapBlock) {
+        // No-overlap stall: pipeline has an instruction ahead, wait for it to drain
+        ifStall  = true;
+        ifLabel_ = "--- [waiting for drain]";
     } else if (haltInPipeline_ || memNeedsAccess) {
         ifStall  = true;
         ifLabel_ = haltInPipeline_
@@ -99,12 +140,8 @@ bool Pipeline::tick() {
     } else { ifLabel_ = "---"; }
 
     // ---- Branch squash ----
-    // Key fix: cancel any in-progress IF memory request BEFORE redirecting PC.
-    // Without this, DirectMemIF may complete a stale fetch for the wrong address
-    // and deliver the wrong instruction to IF on the next cycle.
     if (branchTaken) {
-        mem_->cancelRequestFrom(MemIF::StageId::IF);  // discard stale IF fetch
-
+        mem_->cancelRequestFrom(MemIF::StageId::IF);
         if (nextIfid.valid) {
             nextIfid.squashed = true;
             ifLabel_ = nextIfid.instr.label + " [squashed]";
@@ -117,13 +154,13 @@ bool Pipeline::tick() {
         haltInPipeline_ = false;
     }
 
-    // ---- MEM stall — freeze everything except WB ----
+    // ---- MEM stall ----
     if (memStall) {
         pc_ = savedPc; nextIfid = ifid_; nextIdex = idex_; nextExmem = exmem_;
         auto sq = [](bool s){ return s ? " [squashed]" : ""; };
         ifLabel_  = ifid_.valid  ? (ifid_.instr.label  + sq(ifid_.squashed)  + " [mem stall]") : "---";
         idLabel_  = idex_.valid  ? (idex_.instr.label  + sq(idex_.squashed)  + " [mem stall]") : "---";
-        exLabel_  = exmem_.valid ? (exmem_.instr.label + sq(exmem_.squashed) + " [mem stall]") : "---";
+        exLabel_  = idex_.valid  ? (idex_.instr.label  + sq(idex_.squashed)  + " [mem stall]") : "--- [mem stall]";
     }
 
     // ---- Commit ----
@@ -138,7 +175,6 @@ bool Pipeline::tick() {
 
 // ---------------------------------------------------------------------------
 // MEM stage
-// MEMWBReg field order: instr, pc, result, flagsValue, writesFlags, valid, squashed
 // ---------------------------------------------------------------------------
 bool Pipeline::doMEM(MEMWBReg& next) {
     if (!exmem_.valid) { memLabel_ = "---"; return false; }
@@ -147,13 +183,9 @@ bool Pipeline::doMEM(MEMWBReg& next) {
         : exmem_.instr.label;
 
     if (exmem_.squashed) {
-        next.instr       = exmem_.instr;
-        next.pc          = exmem_.pc;
-        next.result      = exmem_.aluResult;
-        next.flagsValue  = 0;
-        next.writesFlags = false;
-        next.valid       = true;
-        next.squashed    = true;
+        next.instr = exmem_.instr; next.pc = exmem_.pc;
+        next.result = exmem_.aluResult; next.flagsValue = 0;
+        next.writesFlags = false; next.valid = true; next.squashed = true;
         return false;
     }
 
@@ -161,43 +193,29 @@ bool Pipeline::doMEM(MEMWBReg& next) {
         case Opcode::LOAD: {
             auto r = mem_->load(exmem_.aluResult, MemIF::StageId::MEM);
             if (r.wait) { memLabel_ += " [mem wait]"; return true; }
-            next.instr       = exmem_.instr;
-            next.pc          = exmem_.pc;
-            next.result      = r.value;
-            next.flagsValue  = exmem_.flagsValue;
-            next.writesFlags = exmem_.writesFlags;
-            next.valid       = true;
-            next.squashed    = false;
+            next.instr = exmem_.instr; next.pc = exmem_.pc;
+            next.result = r.value; next.flagsValue = exmem_.flagsValue;
+            next.writesFlags = exmem_.writesFlags; next.valid = true; next.squashed = false;
             return false;
         }
         case Opcode::STORE: {
             auto r = mem_->store(exmem_.aluResult, MemIF::StageId::MEM, exmem_.storeValue);
             if (r.wait) { memLabel_ += " [mem wait]"; return true; }
-            next.instr       = exmem_.instr;
-            next.pc          = exmem_.pc;
-            next.result      = 0;
-            next.flagsValue  = 0;
-            next.writesFlags = false;
-            next.valid       = true;
-            next.squashed    = false;
+            next.instr = exmem_.instr; next.pc = exmem_.pc;
+            next.result = 0; next.flagsValue = 0;
+            next.writesFlags = false; next.valid = true; next.squashed = false;
             return false;
         }
         default:
-            next.instr       = exmem_.instr;
-            next.pc          = exmem_.pc;
-            next.result      = exmem_.aluResult;
-            next.flagsValue  = exmem_.flagsValue;
-            next.writesFlags = exmem_.writesFlags;
-            next.valid       = true;
-            next.squashed    = false;
+            next.instr = exmem_.instr; next.pc = exmem_.pc;
+            next.result = exmem_.aluResult; next.flagsValue = exmem_.flagsValue;
+            next.writesFlags = exmem_.writesFlags; next.valid = true; next.squashed = false;
             return false;
     }
 }
 
 // ---------------------------------------------------------------------------
 // EX stage
-// EXMEMReg field order: instr, pc, aluResult, storeValue, branchTarget,
-//                       flagsValue, branchTaken, writesFlags, valid, squashed
 // ---------------------------------------------------------------------------
 bool Pipeline::doEX(EXMEMReg& next, int& branchTarget) {
     if (!idex_.valid) { exLabel_ = "---"; return false; }
@@ -206,22 +224,15 @@ bool Pipeline::doEX(EXMEMReg& next, int& branchTarget) {
         : idex_.instr.label;
 
     if (idex_.squashed) {
-        next.instr        = idex_.instr;
-        next.pc           = idex_.pc;
-        next.aluResult    = 0;
-        next.storeValue   = 0;
-        next.branchTarget = 0;
-        next.flagsValue   = 0;
-        next.branchTaken  = false;
-        next.writesFlags  = false;
-        next.valid        = true;
-        next.squashed     = true;
+        next.instr = idex_.instr; next.pc = idex_.pc;
+        next.aluResult = 0; next.storeValue = 0; next.branchTarget = 0;
+        next.flagsValue = 0; next.branchTaken = false;
+        next.writesFlags = false; next.valid = true; next.squashed = true;
         return false;
     }
 
     int rv1=idex_.rv1, rv2=idex_.rv2, imm=idex_.instr.imm, pc=idex_.pc;
-    int  result=0;
-    bool taken=false, wFlags=setsFlags(idex_.instr), dz=false, ov=false;
+    int result=0; bool taken=false, wFlags=setsFlags(idex_.instr), dz=false, ov=false;
     branchTarget = 0;
 
     switch (idex_.instr.op) {
@@ -237,8 +248,8 @@ bool Pipeline::doEX(EXMEMReg& next, int& branchTarget) {
         case Opcode::SLA:   { int b=rv1; result=rv1<<(rv2&31); ov=(b<0)!=(result<0); break; }
         case Opcode::SRL:   result=(int)((unsigned int)rv1>>(rv2&31)); break;
         case Opcode::SRA:   result=rv1>>(rv2&31); break;
-        case Opcode::CMPLT: result=(rv1<rv2)?1:0;  break;
-        case Opcode::CMPGT: result=(rv1>rv2)?1:0;  break;
+        case Opcode::CMPLT: result=(rv1<rv2)?1:0; break;
+        case Opcode::CMPGT: result=(rv1>rv2)?1:0; break;
         case Opcode::CMPEQ: result=(rv1==rv2)?1:0; break;
         case Opcode::ADDI:  { int64_t r=(int64_t)rv1+imm; result=(int)r; ov=(r>INT_MAX||r<INT_MIN); break; }
         case Opcode::SUBI:  { int64_t r=(int64_t)rv1-imm; result=(int)r; ov=(r>INT_MAX||r<INT_MIN); break; }
@@ -255,17 +266,12 @@ bool Pipeline::doEX(EXMEMReg& next, int& branchTarget) {
         case Opcode::NOP: case Opcode::HALT: wFlags=false; break;
     }
 
-    next.instr        = idex_.instr;
-    next.pc           = pc;
-    next.aluResult    = result;
-    next.storeValue   = rv2;
+    next.instr = idex_.instr; next.pc = pc;
+    next.aluResult = result; next.storeValue = rv2;
     next.branchTarget = branchTarget;
-    next.flagsValue   = computeFlags(result, dz, ov);
-    next.branchTaken  = taken;
-    next.writesFlags  = wFlags;
-    next.valid        = true;
-    next.squashed     = false;
-
+    next.flagsValue = computeFlags(result, dz, ov);
+    next.branchTaken = taken; next.writesFlags = wFlags;
+    next.valid = true; next.squashed = false;
     return taken;
 }
 
@@ -293,8 +299,7 @@ bool Pipeline::writesRegister(const Instruction& i) {
         case Opcode::SLL: case Opcode::SLA: case Opcode::SRL: case Opcode::SRA:
         case Opcode::CMPLT: case Opcode::CMPGT: case Opcode::CMPEQ:
         case Opcode::ADDI: case Opcode::SUBI: case Opcode::MULI: case Opcode::DIVI:
-        case Opcode::LOAD: case Opcode::JAL:  case Opcode::JALR:
-            return true;
+        case Opcode::LOAD: case Opcode::JAL: case Opcode::JALR: return true;
         default: return false;
     }
 }
@@ -310,19 +315,17 @@ bool Pipeline::setsFlags(const Instruction& i) {
     }
 }
 int Pipeline::computeFlags(int r, bool dz, bool ov) {
-    int f = 0;
-    if (r == 0) f |= FLAG_ZERO;
-    if (r <  0) f |= FLAG_NEGATIVE;
-    if (ov)     f |= FLAG_OVERFLOW;
-    if (dz)     f |= FLAG_DIVZERO;
+    int f=0;
+    if(r==0)f|=FLAG_ZERO; if(r<0)f|=FLAG_NEGATIVE;
+    if(ov)f|=FLAG_OVERFLOW; if(dz)f|=FLAG_DIVZERO;
     return f;
 }
 void Pipeline::dump() const {
-    const int w = 28;
-    std::cout << "Cycle " << std::setw(3) << cycle_
-              << " | IF: " << std::setw(w) << std::left << ifLabel_
-              << "| ID: "  << std::setw(w) << idLabel_
-              << "| EX: "  << std::setw(w) << exLabel_
-              << "| MEM: " << std::setw(w) << memLabel_
-              << "| WB: "  << wbLabel_ << std::right << "\n";
+    const int w=28;
+    std::cout<<"Cycle "<<std::setw(3)<<cycle_
+             <<" | IF: "<<std::setw(w)<<std::left<<ifLabel_
+             <<"| ID: "<<std::setw(w)<<idLabel_
+             <<"| EX: "<<std::setw(w)<<exLabel_
+             <<"| MEM: "<<std::setw(w)<<memLabel_
+             <<"| WB: "<<wbLabel_<<std::right<<"\n";
 }

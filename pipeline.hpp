@@ -11,20 +11,28 @@
 
 class Pipeline {
 public:
-    Pipeline(int programBase, int programSize, MemIF* mem);
+    // noOverlap=true: IF stalls until ALL downstream stages are empty before
+    // fetching the next instruction.  This gives the "no pipeline" behaviour
+    // where only one instruction occupies the pipeline at a time, but the
+    // 5-stage structure is still visible and each instruction takes ≥5 cycles.
+    Pipeline(int programBase, int programSize, MemIF* mem, bool noOverlap = false);
 
-    // Advance one clock cycle. Returns false when the pipeline has fully drained.
+    // Advance exactly one clock cycle.
+    // Returns false when the pipeline has fully drained.
     bool tick();
+
+    // Advance clock cycles until one non-squashed instruction exits WB,
+    // or until the pipeline is done.  Returns the number of cycles consumed.
+    // This is "step one instruction" for both pipe and no-pipe modes.
+    int stepInstruction();
+
     void dump() const;
 
     int  getCycleCount() const { return cycle_; }
     bool isDone()        const { return done_;  }
+    int  getCurrentPC()  const { return pc_;    }
 
-    // Current fetch PC — the address of the next instruction to be fetched.
-    // In pipeline mode this is the most natural "program counter" to display.
-    int getCurrentPC() const { return pc_; }
-
-    // GUI accessors — valid after each tick()
+    // GUI accessors — valid after each tick() / stepInstruction()
     std::string getIFLabel()  const { return ifLabel_;  }
     std::string getIDLabel()  const { return idLabel_;  }
     std::string getEXLabel()  const { return exLabel_;  }
@@ -45,8 +53,8 @@ private:
     // Pipeline latches
     //
     // squashed=true: instruction was on the wrong path after a branch.
-    //   Stays visible in the pipeline but all side effects are suppressed.
-    // valid=false: structural bubble — stall-injected NOP, no instruction.
+    //   Stays visible in all stages but all side effects are suppressed.
+    // valid=false: structural bubble — stall-injected NOP.
     // -----------------------------------------------------------------------
     struct IFIDReg {
         Instruction instr    = makeNop();
@@ -79,10 +87,15 @@ private:
 
     int    programBase_, programEndPc_;
     MemIF* mem_;
+    bool   noOverlap_;   // true = "no pipeline" mode
     RegisterFile rf_;
 
     int  pc_=0, cycle_=0;
     bool done_=false, haltInPipeline_=false;
+
+    // True if any downstream stage (ID/EX/MEM/WB) currently holds a valid
+    // latch entry.  Used by no-overlap mode to gate IF.
+    bool downstreamBusy() const;
 
     IFIDReg  ifid_;
     IDEXReg  idex_;
