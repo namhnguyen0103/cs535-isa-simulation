@@ -1,0 +1,121 @@
+# Benchmark 2: Matrix Multiply  C = A x B  (4x4 integer matrices)
+#
+# Computes the product of two 4x4 matrices stored in row-major order.
+# This benchmark stresses BOTH the pipeline and cache because:
+#   - Three nested loops create deep data-hazard stall chains.
+#   - Each row of A (4 words = 1 cache line) is accessed 4 times
+#     across the j loop, and each row of B is accessed 4 times across
+#     the i loop — so every data cache line is reused 4+ times.
+#   - With three matrices (48 words total) exceeding the cache capacity
+#     (4 lines x 4 words = 16 words), evictions occur regularly.
+#   - The MULI, ADD, LOAD, MUL, ADD sequence in the inner loop contains
+#     multiple load-use data hazards visible in pipeline mode.
+#
+# Memory layout (default config: 64 DRAM lines x 4 words = 256 words):
+#   Instructions: addresses 0-34  (DRAM lines 0-8)
+#   Matrix A:     addresses 64-79 (DRAM lines 16-19)  [row-major, 4x4]
+#   Matrix B:     addresses 80-95 (DRAM lines 20-23)  [identity matrix]
+#   Matrix C:     addresses 96-111 (DRAM lines 24-27) [result, init=0]
+#
+# B = identity so result C should equal A (easy to verify).
+#
+# Addressing: element [row][col] is at base + row*4 + col
+#
+# Registers:
+#   r3  = N = 4
+#   r4  = base_A = 64
+#   r5  = base_B = 80
+#   r6  = base_C = 96
+#   r7  = i               (row of A and C, outer loop)
+#   r8  = j               (column of B and C, middle loop)
+#   r9  = k               (inner loop: dot product index)
+#   r10 = sum             (accumulator for C[i][j])
+#   r11 = A[i][k]         (loaded value)
+#   r12 = B[k][j]         (loaded value)
+#   r13 = address temp    (for A and C)
+#   r14 = address temp    (for B)
+#   r15 = product         (A[i][k] * B[k][j])
+#   r16 = comparison result
+#
+# Expected result: C = A (since B = identity)
+#   C row 0: 1  2  3  4   at addresses 96-99
+#   C row 1: 5  6  7  8   at addresses 100-103
+#   C row 2: 9  10 11 12  at addresses 104-107
+#   C row 3: 13 14 15 16  at addresses 108-111
+
+# Matrix A (rows 0-3)
+DATA 64    1  2  3  4
+DATA 68    5  6  7  8
+DATA 72    9 10 11 12
+DATA 76   13 14 15 16
+
+# Matrix B = identity
+DATA 80    1 0 0 0
+DATA 84    0 1 0 0
+DATA 88    0 0 1 0
+DATA 92    0 0 0 1
+
+# Matrix C = 0 (result area)
+DATA 96    0 0 0 0
+DATA 100   0 0 0 0
+DATA 104   0 0 0 0
+DATA 108   0 0 0 0
+
+# ---- Initialization ----
+ADDI r3, r0, 4        # PC 0:  N = 4
+ADDI r4, r0, 64       # PC 1:  base_A = 64
+ADDI r5, r0, 80       # PC 2:  base_B = 80
+ADDI r6, r0, 96       # PC 3:  base_C = 96
+ADDI r7, r0, 0        # PC 4:  i = 0
+
+# ---- Outer loop over rows i (PC 5) ----
+CMPLT r16, r7, r3     # PC 5:  r16 = (i < N) ? 1 : 0
+BEQ r16, r0, 27       # PC 6:  if i >= N: jump to HALT (PC 34)
+                      #         target = 6+1+27 = 34
+ADDI r8, r0, 0        # PC 7:  j = 0
+
+# ---- Middle loop over columns j (PC 8) ----
+CMPLT r16, r8, r3     # PC 8:  r16 = (j < N) ? 1 : 0
+BEQ r16, r0, 22       # PC 9:  if j >= N: jump to i-increment (PC 32)
+                      #         target = 9+1+22 = 32
+ADDI r10, r0, 0       # PC 10: sum = 0
+ADDI r9, r0, 0        # PC 11: k = 0
+
+# ---- Inner loop (dot product) k (PC 12) ----
+CMPLT r16, r9, r3     # PC 12: r16 = (k < N) ? 1 : 0
+BEQ r16, r0, 12       # PC 13: if k >= N: jump to store (PC 26)
+                      #         target = 13+1+12 = 26
+
+# Load A[i][k]:  address = base_A + i*4 + k
+MULI r13, r7, 4       # PC 14: i*4
+ADD r13, r13, r4      # PC 15: base_A + i*4
+ADD r13, r13, r9      # PC 16: base_A + i*4 + k
+LOAD r11, r13, 0      # PC 17: r11 = A[i][k]
+
+# Load B[k][j]:  address = base_B + k*4 + j
+MULI r14, r9, 4       # PC 18: k*4
+ADD r14, r14, r5      # PC 19: base_B + k*4
+ADD r14, r14, r8      # PC 20: base_B + k*4 + j
+LOAD r12, r14, 0      # PC 21: r12 = B[k][j]
+
+MUL r15, r11, r12     # PC 22: product = A[i][k] * B[k][j]
+ADD r10, r10, r15     # PC 23: sum += product
+ADDI r9, r9, 1        # PC 24: k++
+J -14                 # PC 25: jump back to inner loop (PC 12)
+                      #         target = 25+1-14 = 12
+
+# Store C[i][j]:  address = base_C + i*4 + j  (PC 26)
+MULI r13, r7, 4       # PC 26: i*4
+ADD r13, r13, r6      # PC 27: base_C + i*4
+ADD r13, r13, r8      # PC 28: base_C + i*4 + j
+STORE r10, r13, 0     # PC 29: C[i][j] = sum  (value=r10, base=r13)
+ADDI r8, r8, 1        # PC 30: j++
+J -24                 # PC 31: jump back to middle loop (PC 8)
+                      #         target = 31+1-24 = 8
+
+# i-increment (PC 32)
+ADDI r7, r7, 1        # PC 32: i++
+J -29                 # PC 33: jump back to outer loop (PC 5)
+                      #         target = 33+1-29 = 5
+
+HALT                  # PC 34

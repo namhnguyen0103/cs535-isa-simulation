@@ -20,7 +20,16 @@ Cache::StageId Cache::getActiveStage() const {
 }
 
 void Cache::cancelRequestFrom(StageId stage) {
-    if (busy() && getActiveStage() == stage) reset();
+    if (busy() && getActiveStage() == stage) {
+        // If the cache was mid-miss and had issued a DRAM operation on behalf
+        // of this stage (dirty-victim flush or new-line fetch), also reset DRAM.
+        // Without this, DRAM stays busy with the abandoned request and deadlocks
+        // when the next owner tries to start its own DRAM operation.
+        if (lowerLevel_->busy()) {
+            lowerLevel_->reset();
+        }
+        reset();
+    }
 }
 
 void Cache::cancelCurrentRequest() { reset(); }

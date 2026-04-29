@@ -11,6 +11,7 @@
 #include <QFileInfo>
 #include <QFrame>
 
+#include <algorithm>
 #include <iomanip>
 #include <sstream>
 
@@ -534,16 +535,25 @@ void MainWindow::refreshDRAM() {
     int numLines  = dram_->getNumLines();
     int lineSize  = dram_->getLineSize();
     int progLines = ((int)program_.size() + lineSize - 1) / lineSize;
-    int dataLine  = DATA_BASE / lineSize;
+
     for (int i = 0; i < numLines; ++i) {
         DRAM::Line line = dram_->peekLine(i * lineSize);
         QStringList words;
         for (int w : line) words << hexStr(w);
-        QString tag = (i < progLines) ? " [instr]" : (i == dataLine ? " [data]" : "");
+
+        bool isInstr = (i < progLines);
+        // A data line is any non-instruction line containing at least one non-zero word.
+        // This highlights all DATA blocks regardless of how many lines they span.
+        bool isData  = !isInstr &&
+                       std::any_of(line.begin(), line.end(), [](int w){ return w != 0; });
+
+        QString tag = isInstr ? " [instr]" : (isData ? " [data]" : "");
         auto* item = new QListWidgetItem(
             QString("Line %1%2 | %3").arg(i,2).arg(tag).arg(words.join(" ")));
-        if (i < progLines)      item->setForeground(QColor("#6C3483"));
-        else if (i == dataLine) item->setForeground(QColor("#1A5276"));
+
+        if (isInstr)     item->setForeground(QColor("#6C3483"));  // purple
+        else if (isData) item->setForeground(QColor("#1A5276"));  // blue
+
         dramList_->addItem(item);
     }
 }
