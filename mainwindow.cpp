@@ -23,7 +23,7 @@ static const char* C_WB       = "#D7BDE2";
 static const char* C_SQUASHED = "#F1948A";
 static const char* C_IDLE     = "#E5E7E9";
 
-static constexpr int MAX_CYCLES = 100000;
+static constexpr int MAX_CYCLES = 1000000;
 
 static QString hexStr(int v) {
     std::ostringstream ss;
@@ -211,9 +211,9 @@ void MainWindow::setupUI() {
 
     QGroupBox* dramCfg = new QGroupBox("DRAM Configuration");
     QFormLayout* dramForm = new QFormLayout(dramCfg);
-    dramNumLinesSpin_ = new QSpinBox(); dramNumLinesSpin_->setRange(4,512); dramNumLinesSpin_->setValue(64);
+    dramNumLinesSpin_ = new QSpinBox(); dramNumLinesSpin_->setRange(4,8000); dramNumLinesSpin_->setValue(64);
     dramLineSizeSpin_ = new QSpinBox(); dramLineSizeSpin_->setRange(1,32);  dramLineSizeSpin_->setValue(4);
-    dramDelaySpin_    = new QSpinBox(); dramDelaySpin_->setRange(0,50);     dramDelaySpin_->setValue(3);
+    dramDelaySpin_    = new QSpinBox(); dramDelaySpin_->setRange(0,100);     dramDelaySpin_->setValue(3);
     dramCapLabel_ = new QLabel();
     dramCapLabel_->setStyleSheet("color: #555; font-size: 9pt;");
     auto updateCap = [this]() {

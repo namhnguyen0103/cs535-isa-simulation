@@ -1,0 +1,5 @@
+cd ~/Downloads/files-2/build
+rm -rf *
+cmake ..
+make
+./sim_gui
